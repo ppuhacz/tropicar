@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  font-family:'Segoe UI', 'mulish', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+a {
+  text-decoration: none;
+}
