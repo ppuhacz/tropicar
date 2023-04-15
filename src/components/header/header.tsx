@@ -4,22 +4,12 @@ import logoNew from "../../img/logo-new.webp";
 import menuIcon from "../../img/menu-icon.svg";
 import closeIcon from "../../img/close-icon.svg";
 import { NavLink } from "react-router-dom";
+import useIsMobile from "../../config/is-mobile-hook";
 
 function Header() {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [isActive, setIsActive] = useState<boolean>(false);
 
-  useEffect(() => {
-    // check if screen is lower than 768px wide, therefore if it's a movile or desktop device
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const isMobile = useIsMobile();
 
   function handleOnClick() {
     setIsActive(!isActive);

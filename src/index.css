@@ -5,6 +5,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #ffffff;
   min-height: 100vh;
+  background-color: #1c1e24;
 }
 a {
   text-decoration: none;
