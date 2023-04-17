@@ -37,10 +37,10 @@ main {
   .active {
     opacity: 1;
   }
+
   .porsche-panamera-turbo-s {
     object-position: -230px 0;
     width: 800px;
-
   }
   .bmw-m4-coupe {
     width:800px;
@@ -50,24 +50,205 @@ main {
 
   .mercedes-c63-amg {
     object-position: -350px;
-    width: 800px!important;
+    width: 800px;
   }
 
-  &-text-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+  &-text-container{
     position: absolute;
     top: 290px;
     width: 86%;
     // z-index: 1;
     color: white;
     text-align:justify;
+    &-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
       h2 {
+        text-align: center;
         margin-bottom: 10px;
       }
+    }
+
+    @media (min-width: 472px) {
+      .slideshow {
+        height: 430px;
+      }
+
+      .porsche-panamera-turbo-s {
+        object-position: -200px 0;
+      }
+      .bmw-m4-coupe {
+        object-position: 170px 0;
+      }
+      .mercedes-c63-amg {
+        object-position: -260px 0;
+      }
+
+    @media (min-width: 564px) {
+      .slideshow {
+        height: 410px;
+      }
+
+      .porsche-panamera-turbo-s {
+        object-position: -100px 0;
+      }
+
+      .bmw-m4-coupe {
+        object-position: 70px 0;
+      }
+
+      .mercedes-c63-amg {
+        object-position: -160px 0;
+      }
+    }
+
+    @media (min-width: 664px) {
+      .slideshow {
+        height: 400px;
+      }
+
+      .porsche-panamera-turbo-s {
+        object-position: 0 0;
+      }
+
+      .bmw-m4-coupe {
+        object-position: 0 0;
+      }
+
+      .mercedes-c63-amg {
+        object-position: -40px 0;
+      }
+    }
+
+    @media (min-width: 784px) {
+
+      flex-direction: row;
+      justify-content: flex-start;
+      &-photos {
+        height: 500px;
+      }
+
+      &-text-container {
+        display: flex;
+        align-items: center;
+        padding: 25px;
+        top: 0px;
+        height: 500px;
+        background-color:rgba(0, 0, 0, 0.836);
+        clip-path: polygon(0 0, 80% 0, 60% 100%, 0% 100%);
+        -webkit-mask-image: linear-gradient(black, 80%, transparent);
+        mask-image: linear-gradient(black, 80%, transparent);
+
+        .home-page-title-text-wrapper{
+          width: 60%;
+        }
+      }
+
+      .slideshow {
+        height: 500px;
+      }
+
+      .porsche-panamera-turbo-s {
+        width: 1200px;
+        object-position: -100px 0;
+      }
+
+      .bmw-m4-coupe {
+        width: 1200px;
+        object-position: 150px 0;
+      }
+
+      .mercedes-c63-amg {
+        width: 1300px;
+        object-position: -250px 0;
+      }
+    }
+
+    @media (min-width: 1046px) {
+      &-photos {
+        height: 850px;
+
+      }
+      &-text-container {
+        padding: 50px;
+        height: 850px;
+        h2 {
+          font-size: 3rem;
+          margin-bottom: 50px;
+        }
+        p {
+          font-size: 1.1rem;
+          line-height: 27px;
+        }
+      }
+      .slideshow {
+        height: 900px;
+      }
+
+      .porsche-panamera-turbo-s {
+        width: 1200px;
+        object-position: -100px 0;
+      }
+
+      .bmw-m4-coupe {
+        width: 1200px;
+        object-position: -300px 0;
+      }
+
+      .mercedes-c63-amg {
+        width: 1300px;
+        object-position: -525px 0;
+      }
+    }
+
+    @media (min-width: 1201px) {
+
+      .porsche-panamera-turbo-s {
+        width: 1400px;
+        object-position: 0 0;
+      }
+
+      .bmw-m4-coupe {
+        width: 1400px;
+        object-position: -150px 0;
+      }
+
+      .mercedes-c63-amg {
+        width: 1400px;
+        object-position: -300px 0;
+      }
+    }
+
+    @media (min-width: 1401px) {
+
+      &-text-container {
+        clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
+      }
+
+      .home-page-title-text-wrapper{
+        width: 40%;
+      }
+
+      .porsche-panamera-turbo-s {
+        width: 1920px;
+        object-position: 0 0;
+      }
+
+      .bmw-m4-coupe {
+        width: 1920px;
+        object-position: 0 0;
+      }
+
+      .mercedes-c63-amg {
+        width: 1920px;
+        object-position: -0 0;
+      }
+    }
     }
   }
 
@@ -89,8 +270,18 @@ main {
 
       .vertical-line {
         height: 3rem;
-        width: 20px;
+        width: 5px;
+        margin-right: 10px;
         object-fit:cover
+      }
+
+      @media (min-width: 1046px) {
+        .vertical-line {
+          height: 4rem;
+        }
+        h2 {
+          font-size: 2rem;
+        }
       }
     }
 
@@ -99,10 +290,12 @@ main {
       grid-template-columns: repeat(1, 3fr);
       width: 86%;
       margin: auto;
+
       span {
         display: flex;
         align-items: center;
       }
+
       .home-page-info-panel {
         display: flex;
         flex-direction: column;
@@ -117,33 +310,82 @@ main {
           margin: 20px 0
         }
       }
+
       .panel-tick-icon {
         height: 30px;
         margin-right: 10px;
       }
+
       @media (min-width: 842px){
         grid-template-columns: repeat(2, 1fr);
+        #panel-2 {
+          justify-self: end;
+        }
       }
+
       @media (min-width: 1024px) {
         .home-page-info-panel {
           width: 400px;
         }
       }
+
       @media (min-width: 1261px){
         grid-template-columns: repeat(3, 1fr);
+        #panel-2 {
+          justify-self: center;
+        }
+        #panel-3 {
+          justify-self: end;
+        }
         .home-page-info-panel {
           width: 330px;
         }
       }
+
       @media (min-width: 1624px){
         .home-page-info-panel {
           width: 450px;
         }
       }
+    }
   }
+
+  #home-page-newest-offers-section{
+    margin: auto;
+    width: 86vw;
+    color: white;
+
+    .home-page-newest-offers-title {
+      margin: 50px 0;
+
+      span {
+        display: flex;
+        align-items: center;
+
+        .vertical-line {
+          height: 3rem;
+          width: 5px;
+          margin-right: 10px;
+          object-fit:cover
+        }
+
+        h3 {
+          font-size: 1.3rem;
+        }
+
+        @media (min-width: 1046px) {
+          .vertical-line {
+            height: 4rem;
+          }
+          h3 {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+
+    .home-page-newest-offers-wrapper {
+      margin-bottom: 300px;
+    }
   }
-
-
-
 }
-

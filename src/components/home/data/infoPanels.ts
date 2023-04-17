@@ -1,4 +1,6 @@
-export const infoPanels = [
+import { InfoPanels } from "../types/info-panels-interface"
+
+export const infoPanels: InfoPanels = [
   {
     id: 1,
     title: 'Extensive fleet',

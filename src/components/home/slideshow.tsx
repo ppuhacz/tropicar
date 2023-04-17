@@ -30,7 +30,6 @@ function SlideShow({
       }`}
     />
   ));
-  console.log("rerender");
   return <div className="slideshow">{slides}</div>;
 }
 

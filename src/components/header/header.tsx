@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles/header-styles.scss";
 import logoNew from "../../img/logo-new.webp";
 import menuIcon from "../../img/menu-icon.svg";

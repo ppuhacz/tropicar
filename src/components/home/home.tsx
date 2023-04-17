@@ -9,6 +9,7 @@ import verticalLine from "../../img/vertical-line.svg";
 import tickIcon from "../../img/rectangular-tick-icon.svg";
 
 import SlideShow from "./slideshow";
+import { InfoPanel } from "./types/info-panels-interface";
 
 const Home = () => {
   const [offers, setOffers] = useState<any>([]);
@@ -22,7 +23,7 @@ const Home = () => {
     fetchData();
   }, []);
 
-  const infoPanelsMapped = infoPanels.map((panel) => {
+  const infoPanelsMapped = infoPanels.map((panel: InfoPanel) => {
     return (
       <div
         className="home-page-info-panel"
@@ -47,14 +48,16 @@ const Home = () => {
           <div className="home-page-title-photo-wrapper">
             <SlideShow photos={backgroundPhotos} slideDuration={8000} />
           </div>
-          <div className="home-page-title-text-wrapper">
-            <h2 className="home-page-title-header">Exotic car rental</h2>
-            <p className="home-page-title-info">
-              Tropicar is a premium exotic car rental service that offers the
-              ultimate driving experience in tropical destinations. With a wide
-              selection of high-end sports cars, luxury convertibles, and SUVs,
-              Tropicar provides the perfect ride for any occasion.
-            </p>
+          <div className="home-page-title-text-container">
+            <div className="home-page-title-text-wrapper">
+              <h2 className="home-page-title-header">Exotic car rental</h2>
+              <p className="home-page-title-info">
+                Tropicar is a premium exotic car rental service that offers the
+                ultimate driving experience in tropical destinations. With a
+                wide selection of high-end sports cars, luxury convertibles, and
+                SUVs, Tropicar provides the perfect ride for any occasion.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -66,11 +69,28 @@ const Home = () => {
               alt="vertical line"
               className="vertical-line"
             />
-            <h2>Why us?</h2>
+            <h2>Why TropiCar?</h2>
           </span>
         </div>
         <div className="home-page-info-panels-container">
           {infoPanelsMapped}
+        </div>
+      </section>
+      <section id="home-page-newest-offers-section">
+        <div className="home-page-newest-offers-container">
+          <div className="home-page-newest-offers-title">
+            <span>
+              <img
+                src={verticalLine}
+                alt="vertical line"
+                className="vertical-line"
+              />
+              <h3>Our newest additions</h3>
+            </span>
+          </div>
+          <div className="home-page-newest-offers-wrapper">
+            Tutaj jutro dodam 6-9 ofert
+          </div>
         </div>
       </section>
     </div>
