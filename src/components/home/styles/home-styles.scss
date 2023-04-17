@@ -1,32 +1,149 @@
-.home-page-title {
-  max-width: 100vw;
+
+@import '../../../config/styles/style-variables.scss';
+
+main {
+  width: 100vw;
+}
+.home-page {
+  &-title {
   position: relative;
   margin:0;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 
   &-photo-wrapper {
     overflow: hidden;
   }
 
-  &-photo {
-    width: 826px;
-    transform: translateX(-300px);
-    z-index: 0;
+  &-photos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 366px;
+    opacity: 0;
+    transition: opacity 1s;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(black, 80%, transparent);
+    mask-image: linear-gradient(black, 80%, transparent);
+  }
+  .slideshow {
     position: relative;
-  -webkit-mask-image: linear-gradient(black, 80%, transparent);
-  mask-image: linear-gradient(black, 80%, transparent);
+    width: 100vw;
+    height: 470px;
+  }
 
+  .active {
+    opacity: 1;
+  }
+  .porsche-panamera-turbo-s {
+    object-position: -230px 0;
+    width: 800px;
+
+  }
+  .bmw-m4-coupe {
+    width:800px;
+    transform: scaleX(-1);
+    object-position: 230px;
+  }
+
+  .mercedes-c63-amg {
+    object-position: -350px;
+    width: 800px!important;
   }
 
   &-text-wrapper{
-    padding: 0 2.5%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: absolute;
-    top: 80%;
-    z-index: 1;
-    width: 95%;
+    top: 290px;
+    width: 86%;
+    // z-index: 1;
     color: white;
-    h2 {
-      margin: 0;
+    text-align:justify;
+
+      h2 {
+        margin-bottom: 10px;
+      }
     }
   }
+
+  #home-page-why-us-section{
+    color: white;
+
+    .home-page-why-us-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        margin: auto;
+        width: 86%;
+        display: flex;
+        margin: 25px 0;
+        align-items: center;
+      }
+
+      .vertical-line {
+        height: 3rem;
+        width: 20px;
+        object-fit:cover
+      }
+    }
+
+    .home-page-info-panels-container {
+      display: grid;
+      grid-template-columns: repeat(1, 3fr);
+      width: 86%;
+      margin: auto;
+      span {
+        display: flex;
+        align-items: center;
+      }
+      .home-page-info-panel {
+        display: flex;
+        flex-direction: column;
+        width: 330px;
+        height: 150px;
+        background-color: #5559629d;
+        text-align: justify;
+        padding: 0 25px;
+        margin-bottom: 25px;
+        h2 {
+          font-size: 1.3rem;
+          margin: 20px 0
+        }
+      }
+      .panel-tick-icon {
+        height: 30px;
+        margin-right: 10px;
+      }
+      @media (min-width: 842px){
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (min-width: 1024px) {
+        .home-page-info-panel {
+          width: 400px;
+        }
+      }
+      @media (min-width: 1261px){
+        grid-template-columns: repeat(3, 1fr);
+        .home-page-info-panel {
+          width: 330px;
+        }
+      }
+      @media (min-width: 1624px){
+        .home-page-info-panel {
+          width: 450px;
+        }
+      }
+  }
+  }
+
+
+
 }
+

@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import getRecent from "../../services/offers/getRecent";
-import backgrondPhoto from "../../img/mercedes-big-photo.avif";
 import "./styles/home-styles.scss";
-import useIsMobile from "../../config/is-mobile-hook";
+// Importing info panel descriptions
+import { infoPanels } from "./data/infoPanels";
+// Importing photos
+import { backgroundPhotos } from "./data/background-photos";
+import verticalLine from "../../img/vertical-line.svg";
+import tickIcon from "../../img/rectangular-tick-icon.svg";
+
+import SlideShow from "./slideshow";
 
 const Home = () => {
   const [offers, setOffers] = useState<any>([]);
@@ -16,28 +22,57 @@ const Home = () => {
     fetchData();
   }, []);
 
+  const infoPanelsMapped = infoPanels.map((panel) => {
+    return (
+      <div
+        className="home-page-info-panel"
+        key={panel.id}
+        id={`panel-${panel.id}`}
+      >
+        <span>
+          <img src={tickIcon} alt="tick" className="panel-tick-icon" />
+          <h2>{panel.title}</h2>
+        </span>
+        <p>{panel.description}</p>
+      </div>
+    );
+  });
+
   console.log("offers", offers);
 
   return (
     <div className="home-page">
-      <div className="home-page-title">
-        <div className="home-page-title-photo-wrapper">
-          <img
-            src={backgrondPhoto}
-            alt="mercedes"
-            className="home-page-title-photo"
-          />
+      <section id="home-page-title-section">
+        <div className="home-page-title">
+          <div className="home-page-title-photo-wrapper">
+            <SlideShow photos={backgroundPhotos} slideDuration={8000} />
+          </div>
+          <div className="home-page-title-text-wrapper">
+            <h2 className="home-page-title-header">Exotic car rental</h2>
+            <p className="home-page-title-info">
+              Tropicar is a premium exotic car rental service that offers the
+              ultimate driving experience in tropical destinations. With a wide
+              selection of high-end sports cars, luxury convertibles, and SUVs,
+              Tropicar provides the perfect ride for any occasion.
+            </p>
+          </div>
         </div>
-        <div className="home-page-title-text-wrapper">
-          <h2 className="home-page-title-header">Exotic car rental</h2>
-          <p className="home-page-title-info">
-            Tropicar is a premium exotic car rental service that offers the
-            ultimate driving experience in tropical destinations. With a wide
-            selection of high-end sports cars, luxury convertibles, and SUVs,
-            Tropicar provides the perfect ride for any occasion.
-          </p>
+      </section>
+      <section id="home-page-why-us-section">
+        <div className="home-page-why-us-separator">
+          <span>
+            <img
+              src={verticalLine}
+              alt="vertical line"
+              className="vertical-line"
+            />
+            <h2>Why us?</h2>
+          </span>
         </div>
-      </div>
+        <div className="home-page-info-panels-container">
+          {infoPanelsMapped}
+        </div>
+      </section>
     </div>
   );
 };

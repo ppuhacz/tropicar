@@ -1,8 +1,4 @@
-// #0096FF
-
-.App-link {
-  color: #61dafb;
-}
+@import '../../../config/styles/style-variables.scss';
 
 header {
 display: flex;
@@ -10,7 +6,7 @@ justify-content: space-between;
 align-items: center;
 padding: 5px 20px;
 background-color: #282c34;
-height: 43px;
+height: 53px;
 color: white;
 
 a {
@@ -117,14 +113,14 @@ a {
   align-items: center;
   height: 40px!important;
   width: 100%;
-  background-color: #FF7B00;
+  background-color: $orange-400;
   color: white;
   border-radius: 5px;
   transition: 0.2s ease-in-out;
 
   &:hover{
     transition: 0.2s ease-in-out;
-    background-color: #e45502;
+    background-color: $orange-500;
   }
 }
 
