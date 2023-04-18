@@ -7,22 +7,24 @@ import { infoPanels } from "./data/infoPanels";
 import { backgroundPhotos } from "./data/background-photos";
 import verticalLine from "../../img/vertical-line.svg";
 import tickIcon from "../../img/rectangular-tick-icon.svg";
-
 import SlideShow from "./slideshow";
 import { InfoPanel } from "./types/info-panels-interface";
+import { Offer } from "./types/home-interface";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   const [offers, setOffers] = useState<any>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const offersData = await getRecent(2);
+      const offersData = await getRecent(5); // fetching 5 of the most recent offers
       setOffers(offersData);
     };
 
     fetchData();
   }, []);
 
+  // Iterating through all information to create info panels
   const infoPanelsMapped = infoPanels.map((panel: InfoPanel) => {
     return (
       <div
@@ -39,7 +41,55 @@ const Home = () => {
     );
   });
 
-  console.log("offers", offers);
+  // Iterating through all offers fetched and returning them in separate panels
+  const recentOffersMapped = offers.map((offer: Offer) => {
+    return (
+      <div className="offer-wrapper" key={offer.slug}>
+        <div className="offer-image">
+          <img src={offer.photo1} alt="offer car" key={"carID=" + offer.ID} />
+          <img
+            src={offer.photo2}
+            alt="second car"
+            className="offer-hover-photo"
+          />
+        </div>
+        <div className="offer-additional-equipment">
+          <h2>{offer.brand + " " + offer.model}</h2>
+          <hr className="offer-horizontal-line" />
+          <ul>
+            <li className="offer-car-power" key={offer.slug + "-power"}>
+              {offer.power}
+            </li>
+            <li className="offer-car-engine" key={offer.slug + "-engine"}>
+              {offer.engine}
+            </li>
+            {offer.tags.map((tag) => {
+              return <li key={offer.slug + " " + tag}>{tag}</li>;
+            })}
+          </ul>
+        </div>
+        <div className="offer-rental-info">
+          <div className="rental-price">
+            <span>
+              <h3>Price per day</h3>
+            </span>
+            <span className="price">{offer.pricePerDay}€</span>
+          </div>
+          <div className="offer-more-info">
+            <NavLink state={offer} to={`/offer/${offer.slug}`}>
+              <span className="test"></span>
+              View more info
+            </NavLink>
+          </div>
+          <div className="offer-book">
+            <NavLink state={offer} to={`/booking/${offer.slug}`}>
+              Book this car
+            </NavLink>
+          </div>
+        </div>
+      </div>
+    );
+  });
 
   return (
     <div className="home-page">
@@ -89,7 +139,13 @@ const Home = () => {
             </span>
           </div>
           <div className="home-page-newest-offers-wrapper">
-            Tutaj jutro dodam 6-9 ofert
+            {offers.length > 0 ? (
+              recentOffersMapped
+            ) : (
+              <div className="loading-container">
+                <div className="loading-circle"></div>
+              </div>
+            )}
           </div>
         </div>
       </section>
