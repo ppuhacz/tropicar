@@ -255,16 +255,16 @@ main {
     @media (min-width: 1921px) {
 
       .porsche-panamera-turbo-s {
-        width: 2524px;
+        width: 2624px;
       }
 
       .bmw-m4-coupe {
-        width: 2524px;
+        width: 2624px;
         object-position: 0 0;
       }
 
       .mercedes-c63-amg {
-        width: 2524px;
+        width: 2624px;
         object-position: 0 0;
       }
     }
@@ -448,13 +448,16 @@ main {
         border-top-left-radius: 5px;
         margin-bottom: 50px;
 
+        .offer-hover-photo {
+          display: none;
+        }
+
         .offer-horizontal-line {
           margin: 10px 0;
           height: 2px;
           width: 80px;
           border: 0;
           background-color: $orange-400;
-
         }
 
         img {
@@ -500,6 +503,14 @@ main {
           }
         }
 
+        a {
+          color: white;
+          font-size: 1.1rem;
+          font-weight: 600;
+          vertical-align: middle;
+          width: 100%;
+          margin: auto;
+        }
         .offer-more-info {
           margin: 20px 0;
           display: flex;
@@ -517,12 +528,7 @@ main {
             transition: all 0.1s linear;
           }
 
-          a {
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            vertical-align: middle;
-          }
+
         }
 
         .offer-book {
@@ -551,6 +557,53 @@ main {
         }
       }
     }
+    .all-offers-container {
+      text-align: center;
+      .show-all-offers-button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: $orange-400;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 17px;
+        padding: 16px;
+        width: 270px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+
+        span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+
+          &:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -15px;
+            transition: 0.5s;
+          }
+        }
+
+        &:hover span {
+          padding-right: 15px;
+        }
+
+        &:hover span:after {
+          opacity: 1;
+          right: 0;
+        }
+        @media (min-width: 2000px) {
+          width: 600px;
+        }
+      }
+    }
+
+
 
     @media (min-width:1024px) {
       .home-page-newest-offers-wrapper {
@@ -577,6 +630,7 @@ main {
           }
 
           .offer-hover-photo {
+            display:inline-block;
             position: absolute;
             z-index: 2;
             left: 0;
@@ -645,4 +699,39 @@ main {
     }
   }
 
+  #location-section {
+    .home-page-location-container {
+      width: $page-width;
+      margin: auto;
+      color: white;
+      .home-page-location-title {
+        margin: 50px 0;
+
+        span {
+          display: flex;
+          align-items: center;
+
+          .vertical-line {
+            height: 3rem;
+            width: 5px;
+            margin-right: 10px;
+            object-fit:cover
+          }
+
+          h3 {
+            font-size: 1.5rem;
+          }
+
+          @media (min-width: 1046px) {
+            .vertical-line {
+              height: 4rem;
+            }
+            h3 {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,112 @@
+@import '../../../config/styles/style-variables.scss';
+
+
+
+.location-wrapper {
+  margin-bottom: 150px;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: $gray-transparent;
+  border-top: 4px solid $orange-400;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+   // container provided by react-leaflet library which defines a container of the map
+  .leaflet-container {
+    width: 100%;
+    height: 300px;
+  }
+
+  .location-info {
+    margin-top: 20px;
+    padding: 0 15px 15px 15px;
+    &-title{
+      h4 {
+        font-size: 1.3rem;
+        color: white;
+      }
+
+      .location-horizontal-line {
+        margin: 10px 0;
+        height: 2px;
+        width: 80px;
+        border: 0;
+        background-color: $orange-400;
+        transition: 0.20s linear;
+      }
+      &:hover {
+        .location-horizontal-line {
+          transition: 0.20s linear;
+          width: 160px;
+        }
+      }
+    }
+    p {
+      text-align: justify;
+    }
+    #info-desktop {
+      display:none;
+    }
+    #info-desktop-large {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row-reverse;
+    .leaflet-container {
+      width: 500px;
+    }
+  }
+
+  @media (min-width: 1350px) {
+    .leaflet-container {
+      width: 700px;
+      height: 300px;
+    }
+    .location-info{
+      padding: 0 40px 20px 20px;
+
+      &-title {
+        h4 {
+          font-size: 1.6rem;
+        }
+        .location-horizontal-line {
+          width: 105px;
+        }
+        &:hover {
+          .location-horizontal-line {
+            width: 200px;
+          }
+        }
+      }
+      p {
+        font-size: 1.1rem;
+        line-height: 25px;
+      }
+    }
+
+  }
+  @media (min-width: 1720px) {
+    .leaflet-container {
+      width: 1000px;
+      height: 500px;
+    }
+    .location-info {
+      #info-desktop {
+        display: block;
+      }
+    }
+  }
+
+  @media (min-width: 2048px) {
+    .location-info {
+      p {
+        margin-top: 10px;
+      }
+      #info-desktop-large {
+        display: block;
+      }
+    }
+  }
+}

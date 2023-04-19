@@ -1,0 +1,71 @@
+@import '../../../config/styles/style-variables.scss';
+
+
+
+footer {
+  width: 100vw;
+  background-color: $dark-blue-600;
+  color: white;
+}
+.footer-container {
+
+  display: flex;
+  width: $page-width;
+  margin: auto;
+  flex-direction: column;
+  // justify-content: space-between;
+  .footer-section {
+    margin: 10px 0;
+    text-align: justify;
+    span {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .vertical-line {
+      height: 2rem;
+      width: 5px;
+      margin-right: 10px;
+      object-fit:cover;
+
+      @media (min-width: 1046px) {
+          height: 2rem;
+      }
+    }
+
+    h4 {
+      font-size: 0.95rem;
+    }
+    p{
+      font-size: 0.87rem;
+    }
+  }
+
+  .footer-navigation-item {
+    text-decoration: none;
+    color: white;
+    list-style-type: none;
+    line-height: 35px;
+    font-size: 0.87rem;
+    &:hover {
+      color: $orange-400;
+    }
+  }
+  .contact {
+    line-height: 25px;
+    img {
+      cursor: pointer;
+      width: 40px;
+      margin-right: 10px;
+    }
+  }
+
+  @media (min-width: 724px) {
+    flex-direction: row;
+    justify-content: space-between;
+      .footer-section {
+        width: 31%;
+      }
+
+  }
+}

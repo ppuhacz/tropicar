@@ -1,6 +1,8 @@
 @import '../../../config/styles/style-variables.scss';
 
 header {
+  position: sticky;
+  top: 0;
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -8,6 +10,8 @@ padding: 5px 20px;
 background-color: #282c34;
 height: 53px;
 color: white;
+
+z-index: 999999;
 
 a {
   color: white;

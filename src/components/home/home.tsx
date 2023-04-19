@@ -11,6 +11,7 @@ import SlideShow from "./slideshow";
 import { InfoPanel } from "./types/info-panels-interface";
 import { Offer } from "./types/home-interface";
 import { NavLink } from "react-router-dom";
+import Map from "./map";
 
 const Home = () => {
   const [offers, setOffers] = useState<any>([]);
@@ -75,17 +76,21 @@ const Home = () => {
             </span>
             <span className="price">{offer.pricePerDay}€</span>
           </div>
-          <div className="offer-more-info">
-            <NavLink state={offer} to={`/offer/${offer.slug}`}>
-              <span className="test"></span>
-              View more info
-            </NavLink>
-          </div>
-          <div className="offer-book">
-            <NavLink state={offer} to={`/booking/${offer.slug}`}>
-              Book this car
-            </NavLink>
-          </div>
+          <NavLink
+            state={offer}
+            to={`/offer/${offer.slug}`}
+            className="offer-more-info"
+          >
+            View more info
+          </NavLink>
+
+          <NavLink
+            state={offer}
+            to={`/booking/${offer.slug}`}
+            className="offer-book"
+          >
+            Book this car
+          </NavLink>
         </div>
       </div>
     );
@@ -140,13 +145,37 @@ const Home = () => {
           </div>
           <div className="home-page-newest-offers-wrapper">
             {offers.length > 0 ? (
-              recentOffersMapped
+              <>
+                {recentOffersMapped}
+                <div className="all-offers-container">
+                  <NavLink to="/fleet">
+                    <button className="show-all-offers-button">
+                      <span>Our fleet</span>
+                    </button>
+                  </NavLink>
+                </div>
+              </>
             ) : (
               <div className="loading-container">
                 <div className="loading-circle"></div>
               </div>
             )}
           </div>
+        </div>
+      </section>
+      <section id="location-section">
+        <div className="home-page-location-container">
+          <div className="home-page-location-title">
+            <span>
+              <img
+                src={verticalLine}
+                alt="vertical line"
+                className="vertical-line"
+              />
+              <h3>Our location</h3>
+            </span>
+          </div>
+          <Map />
         </div>
       </section>
     </div>
