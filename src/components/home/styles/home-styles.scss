@@ -59,7 +59,7 @@ main {
   &-text-container{
     position: absolute;
     top: 290px;
-    width: $page-width;
+    width: $pageWidth;
     // z-index: 1;
     color: white;
     text-align:justify;
@@ -281,7 +281,7 @@ main {
 
       span {
         margin: auto;
-        width: $page-width;
+        width: $pageWidth;
         display: flex;
         margin: 25px 0;
         align-items: center;
@@ -307,7 +307,7 @@ main {
     .home-page-info-panels-container {
       display: grid;
       grid-template-columns: repeat(1, 3fr);
-      width: $page-width;
+      width: $pageWidth;
       margin: auto;
 
       span {
@@ -381,7 +381,7 @@ main {
 
   #home-page-newest-offers-section{
     margin: auto;
-    width: $page-width;
+    width: $pageWidth;
     color: white;
 
     .loading-container {
@@ -438,10 +438,10 @@ main {
     }
 
     .home-page-newest-offers-wrapper {
-      width: $page-width;
+      width: $pageWidth;
 
       .offer-wrapper {
-        width: $page-width;
+        width: $pageWidth;
         background-color: $gray-transparent;
         border-top: 4px solid $orange-400;
         border-top-right-radius: 5px;
@@ -701,7 +701,7 @@ main {
 
   #location-section {
     .home-page-location-container {
-      width: $page-width;
+      width: $pageWidth;
       margin: auto;
       color: white;
       .home-page-location-title {

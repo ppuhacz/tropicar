@@ -12,7 +12,8 @@ function SlideShow({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCurrentSlide((currentSlide + 1) % photos.length);
+      const slide = (currentSlide + 1) % photos.length;
+      setCurrentSlide(slide);
     }, slideDuration);
 
     return () => {
@@ -30,7 +31,7 @@ function SlideShow({
       }`}
     />
   ));
-  return <div className="slideshow">{slides}</div>;
+  return <div className='slideshow'>{slides}</div>;
 }
 
 export default SlideShow;

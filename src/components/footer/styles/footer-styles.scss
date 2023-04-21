@@ -1,19 +1,16 @@
 @import '../../../config/styles/style-variables.scss';
 
-
-
 footer {
   width: 100vw;
   background-color: $dark-blue-600;
   color: white;
 }
 .footer-container {
-
   display: flex;
-  width: $page-width;
+  width: $pageWidth;
   margin: auto;
   flex-direction: column;
-  // justify-content: space-between;
+
   .footer-section {
     margin: 10px 0;
     text-align: justify;

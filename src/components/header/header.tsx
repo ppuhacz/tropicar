@@ -4,7 +4,7 @@ import logoNew from "../../img/logo-new.webp";
 import menuIcon from "../../img/menu-icon.svg";
 import closeIcon from "../../img/close-icon.svg";
 import { NavLink } from "react-router-dom";
-import useIsMobile from "../../config/is-mobile-hook";
+import useIsMobile from "../../hooks/is-mobile-hook";
 
 function Header() {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -17,44 +17,43 @@ function Header() {
 
   const listItems = (
     <>
-      <NavLink to="/fleet">
-        <li className="navigation-item">Our cars</li>
+      <NavLink to='/fleet'>
+        <li className='navigation-item'>Our cars</li>
       </NavLink>
-      <NavLink to="/contact-us">
-        <li className="navigation-item">Contact us</li>
+      <NavLink to='/contact-us'>
+        <li className='navigation-item'>Contact us</li>
       </NavLink>
-      <NavLink to="/login">
-        <li className="navigation-item">Sign in</li>
+      <NavLink to='/login'>
+        <li className='navigation-item'>Sign in</li>
       </NavLink>
-      <NavLink to="/booking">
-        <li className="navigation-item navigation-book-a-car">Book a car</li>
+      <NavLink to='/booking'>
+        <li className='navigation-item navigation-book-a-car'>Book a car</li>
       </NavLink>
     </>
   );
 
   return (
     <header>
-      <div className="header-icon">
-        <NavLink to="/">
-          <img src={logoNew} className="header-logo" alt="logo" />
+      <div className='header-icon'>
+        <NavLink to='/'>
+          <img src={logoNew} className='header-logo' alt='logo' />
         </NavLink>
       </div>
-      <div className="header-navigation">
+      <div className='header-navigation'>
         {isMobile ? (
-          // display dropdown menu if on mobile
-          <div className="dropdown-menu">
-            <button className="dropdown-menu-button" onClick={handleOnClick}>
+          <div className='dropdown-menu'>
+            <button className='dropdown-menu-button' onClick={handleOnClick}>
               {isActive ? (
                 <img
                   src={closeIcon}
-                  className="dropdown-menu-close-icon"
-                  alt="close menu"
+                  className='dropdown-menu-close-icon'
+                  alt='close menu'
                 />
               ) : (
                 <img
                   src={menuIcon}
-                  className="dropdown-menu-open-icon"
-                  alt="open-menu"
+                  className='dropdown-menu-open-icon'
+                  alt='open-menu'
                 />
               )}
             </button>
@@ -68,7 +67,7 @@ function Header() {
           </div>
         ) : (
           // display regular list if on desktop
-          <ul className="header-navigation-list">{listItems}</ul>
+          <ul className='header-navigation-list'>{listItems}</ul>
         )}
       </div>
     </header>
