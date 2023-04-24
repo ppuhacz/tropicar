@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /fleet/
+Allow: /offer/
+Allow: /contact-us/
+Allow: /login/
+Allow: /booking/
+
+User-agent: Googlebot
+User-agent: AdsBot-Google
+Disallow: /
