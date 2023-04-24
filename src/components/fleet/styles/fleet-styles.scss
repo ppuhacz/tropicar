@@ -1,0 +1,60 @@
+@import '../../../config/styles/style-variables.scss';
+ * {
+  color: #fff;
+ }
+
+.fleet-page {
+  width: $pageWidth;
+  margin: auto;
+
+  .fleet-page-our-fleet {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      margin: auto;
+      width: $pageWidth;
+      display: flex;
+      margin: 25px 0;
+      align-items: center;
+    }
+
+    .vertical-line {
+      height: 3rem;
+      width: 5px;
+      margin-right: 10px;
+      object-fit:cover
+    }
+
+    @media (min-width: 1046px) {
+      .vertical-line {
+        height: 4rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+.our-fleet-info-container {
+  margin: 100px 0;
+  padding : 25px 20px;
+  background-color: $gray-transparent;
+  border-top: 4px solid $orange-400;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+  .our-fleet-info-text-2 {
+    display: none;
+  }
+  }
+  @media (min-width: 942px) {
+    .our-fleet-info-container{
+      padding : 25px 40px;
+      .our-fleet-info-text-2 {
+          display: block;
+      }
+    }
+  }
