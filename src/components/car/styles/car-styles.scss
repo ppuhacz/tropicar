@@ -1,2 +1,102 @@
 @import '../../../config/styles/style-variables.scss';
 
+.car-offer {
+
+  &-container {
+    width: $pageWidth;
+    margin: 30px auto;
+  }
+
+  &-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h2, h3 {
+    font-size: 24px;
+  }
+
+   span {
+    margin: auto;
+    width: $pageWidth;
+    display: flex;
+    align-items: center;
+  }
+
+  .vertical-line {
+    height: 2.5rem;
+    width: 5px;
+    margin-right: 10px;
+    object-fit:cover
+  }
+
+      @media (min-width: 1046px) {
+    .vertical-line {
+       height: 4rem;
+    }
+    h2, h3{
+      font-size: 2rem;
+      }
+    }
+  }
+
+  &-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-additional-equipment {
+    background-color: $gray-transparent-400;
+    padding: 20px;
+
+    .equipment-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 15px;
+      flex-direction: row;
+      list-style-type: none;
+
+      .equipment-list-item, .offer-car-power, .offer-car-engine {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 25px;
+        padding: 5px;
+        margin: 2px;
+        border-left: 2px solid $orange-400;
+      }
+    }
+  }
+
+  &-photos {
+    margin: $carOfferMargin
+  }
+
+  &-description {
+    margin: $carOfferMargin
+  }
+
+  &-price-list {
+  margin: $carOfferMargin;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+
+  &-row {
+    display: flex;
+    width: 100%;
+    gap: 2px;
+    .car-offer-rental-duration, .car-offer-rental-price {
+      padding: 15px;
+      width: 50%;
+    }
+    .car-offer-rental-duration{
+      background-color: $gray-transparent-400;
+    }
+    .car-offer-rental-price {
+      background-color: $gray-transparent-600;
+    }
+  }
+  }
+}

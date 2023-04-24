@@ -39,7 +39,7 @@ const OffersPanels = ({ offers }: Offers) => {
             <span>
               <h3>Price per day</h3>
             </span>
-            <span className='price'>{offer.pricePerDay}€</span>
+            <span className='price'> from {offer.pricePerDay}€</span>
           </div>
           <NavLink
             state={offer}

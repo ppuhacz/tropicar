@@ -1,7 +1,4 @@
 @import '../../../config/styles/style-variables.scss';
- * {
-  color: #fff;
- }
 
 .fleet-page {
   width: $pageWidth;
@@ -41,7 +38,7 @@
 .our-fleet-info-container {
   margin: 100px 0;
   padding : 25px 20px;
-  background-color: $gray-transparent;
+  background-color: $gray-transparent-400;
   border-top: 4px solid $orange-400;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
