@@ -5,8 +5,9 @@ import "./styles/fleet-styles.scss";
 import OffersPanels from "../offer-panels/offers-panels";
 import LoadingCircle from "../loading-circle/loading-cricle";
 import fleetText from "./data/our-fleet-info";
+import ScrollToTop from "../scroll-to-top/scroll-to-top";
 
-export const Fleet = () => {
+const Fleet = () => {
   const [offers, setOffers] = useState<any>([]);
 
   useEffect(() => {
@@ -47,3 +48,7 @@ export const Fleet = () => {
     </div>
   );
 };
+
+const ScrolledFleet = ScrollToTop(Fleet);
+
+export default ScrolledFleet;

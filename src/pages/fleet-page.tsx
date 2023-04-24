@@ -1,11 +1,11 @@
 import React from "react";
 import Layout from "../components/layout/layout";
-import { Fleet } from "../components/fleet/fleet";
+import ScrolledFleet from "../components/fleet/fleet";
 
 const FleetPage = () => {
   return (
     <Layout>
-      <Fleet />
+      <ScrolledFleet />
     </Layout>
   );
 };
