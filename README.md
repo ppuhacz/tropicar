@@ -2,7 +2,7 @@ https://resilient-cheesecake-f53242.netlify.app/
 
 # TropiCar
 
-My free-time exotic car rental project that I have started developing on 14.04. This project is still a work in progress and so far only the home and fleet pages are completed, although there are still some optimization and SEO work to do. 
+My free-time exotic car rental project that I have started developing on 14.04. This project is still a work in progress and so far only the home, fleet, and car information pages are completed, although there are still some optimization and SEO work to do. 
 
 
 
