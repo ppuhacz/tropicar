@@ -58,7 +58,11 @@ const MapDisplay = () => {
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
           />
           <Marker position={[54.190969845456394, 16.181931754895576]}>
-            <Popup>TropiCar Koszalin</Popup>
+            <Popup>
+              TropiCar Koszalin, {<br />}
+              Rynek Staromiejski 6/7, {<br />}
+              75-007 Koszalin
+            </Popup>
           </Marker>
         </MapContainer>
       </div>

@@ -1,2 +1,184 @@
 @import '../../../config/styles/style-variables.scss';
 
+.car-offer {
+
+  &-container {
+    width: $pageWidth;
+    margin: 30px auto;
+  }
+
+  &-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h2, h3 {
+    font-size: 24px;
+  }
+
+   span {
+    margin: auto;
+    width: $pageWidth;
+    display: flex;
+    align-items: center;
+  }
+
+  .vertical-line {
+    height: 2.5rem;
+    width: 5px;
+    margin-right: 10px;
+    object-fit:cover
+  }
+
+      @media (min-width: 1046px) {
+    .vertical-line {
+       height: 4rem;
+    }
+    h2, h3{
+      font-size: 2rem;
+      }
+    }
+  }
+
+  &-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-additional-equipment {
+    background-color: $gray-transparent-400;
+    padding: 20px;
+
+    .equipment-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 15px;
+      flex-direction: row;
+      list-style-type: none;
+
+      .equipment-list-item, .offer-car-power, .offer-car-engine {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 25px;
+        padding: 5px;
+        margin: 2px;
+        border-left: 2px solid $orange-400;
+      }
+    }
+  }
+
+  &-description {
+    margin: $carOfferMargin;
+    text-align: justify;
+  }
+
+  &-list {
+  margin: $carOfferMargin;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+
+  &-row {
+    display: flex;
+    width: 100%;
+    gap: 2px;
+    .car-offer-list-column-1, .car-offer-list-column-2{
+      padding: 15px;
+      width: 50%;
+    }
+    .car-offer-list-column-1{
+      background-color: $gray-transparent-400;
+    }
+    .car-offer-list-column-2{
+      background-color: $gray-transparent-600;
+    }
+  }
+  }
+
+  &-requirements-wrapper {
+    .car-offer-list-row {
+      height: 75px;
+
+      .car-offer-list-column-1, .car-offer-list-column-2 {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .car-offer-info-container {
+    height: 520px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: $carOfferMargin;
+
+    .car-offer-photos {
+      position: relative;
+      height: 100%
+    }
+
+    .car-offer-info-description {
+      margin-right: 50px;
+      .equipment-list{
+        width: 100%;
+        height: 100%;
+
+      }
+    }
+  }
+
+  .car-offer-list-row {
+    flex-direction: column;
+    width: 19.75%;
+    .car-offer-list-column-1, .car-offer-list-column-2{
+      width: 100%;
+    }
+  }
+
+  .car-offer-list{
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
+
+  #requirements-and-deposit {
+    display: flex;
+
+    .car-offer-requirements-wrapper, .car-offer-deposit-wrapper {
+      width: 50%;
+
+    }
+    .car-offer-deposit-wrapper {
+      .car-offer-list {
+      }
+      .car-offer-list-row {
+        width: 97%;
+
+        .car-offer-list-column-1 {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    .car-offer-list-row {
+      width: 49%;
+      height: 100%;
+    }
+
+    .car-offer-list-column-1 {
+      height: 75px;
+    }
+  }
+
+  @media (min-width: 1270px) {
+    #requirements-and-deposit {
+      .car-offer-list-column-1 {
+        height: auto;
+      }
+    }
+  }
+}

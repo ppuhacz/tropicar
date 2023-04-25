@@ -16,4 +16,6 @@ export interface Offer {
   tags: string[];
   status: string;
   slug: string;
+  description: string;
+  deposit: number;
 }

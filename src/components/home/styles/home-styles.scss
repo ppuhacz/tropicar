@@ -318,9 +318,9 @@ main {
       .home-page-info-panel {
         display: flex;
         flex-direction: column;
-        width: 330px;
-        height: 150px;
-        background-color: $gray-transparent;
+        width: 280px;
+        height: 170px;
+        background-color: $gray-transparent-400;
         text-align: justify;
         padding: 0 25px;
         margin-bottom: 25px;
@@ -333,6 +333,14 @@ main {
       .panel-tick-icon {
         height: 30px;
         margin-right: 10px;
+      }
+
+
+      @media (min-width: 389px){
+        .home-page-info-panel {
+          width: 330px;
+          height: 150px;
+        }
       }
 
       @media (min-width: 842px){
