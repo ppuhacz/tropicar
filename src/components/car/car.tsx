@@ -3,6 +3,11 @@ import { useLocation } from "react-router";
 import "./styles/car-styles.scss";
 import verticalLine from "../../img/vertical-line.svg";
 import ScrollToTop from "../scroll-to-top/scroll-to-top";
+import { CarOffer } from "./types/car-interface";
+import PriceListSection from "./sections/price-list-section";
+import RequirementsAndDepositSection from "./sections/requirements-and-deposit-section";
+import MileageLimitSection from "./sections/mileage-limit-section";
+import PhotoGallery from "./photo-gallery";
 
 const Car = () => {
   const location = useLocation();
@@ -17,10 +22,14 @@ const Car = () => {
     power,
     pricePerDay,
     tags,
-    status,
     description,
     slug,
-  } = location.state;
+    deposit,
+  }: CarOffer = location.state;
+
+  const photos = [photo1, photo2, photo3];
+
+  const dailyMileageLimit: number = 200;
 
   return (
     <div className='car-offer-container'>
@@ -37,71 +46,38 @@ const Car = () => {
             </h2>
           </span>
         </div>
-        <div className='car-offer-photos'>
-          <img src={photo1} alt={`${brand} ${model}`} width='100%' />
-        </div>
-        <div className='car-offer-additional-equipment'>
-          <ul className='equipment-list'>
-            <li className='offer-car-power' key={slug + "-power"}>
-              {power}
-            </li>
-            <li className='offer-car-engine' key={slug + "-engine"}>
-              {engine}
-            </li>
-            {tags.map((tag: any) => {
-              return (
-                <li className='equipment-list-item' key={slug + " " + tag}>
-                  {tag}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className='car-offer-description'>{description}</div>
-        <div className='car-offer-separator'>
-          <span>
-            <img
-              src={verticalLine}
-              alt='vertical line'
-              className='vertical-line'
+        <div className='car-offer-info-container'>
+          <div className='car-offer-photos'>
+            <PhotoGallery
+              photos={photos}
+              altTag={`${brand} ${model}`}
+              slug={slug}
             />
-            <h3>Price</h3>
-          </span>
-        </div>
-        <div className='car-offer-price-list'>
-          <div className='car-offer-price-list-row'>
-            <div className='car-offer-rental-duration'>
-              <p>1-3 days</p>
-            </div>
-            <div className='car-offer-rental-price'>
-              <p>€{(pricePerDay * 1.3).toFixed(2)}/day</p>
-            </div>
           </div>
-          <div className='car-offer-price-list-row'>
-            <div className='car-offer-rental-duration'>
-              <p>4-6 days</p>
+          <div className='car-offer-info-description'>
+            <div className='car-offer-additional-equipment'>
+              <ul className='equipment-list'>
+                <li className='offer-car-power' key={slug + "-power"}>
+                  {power}
+                </li>
+                <li className='offer-car-engine' key={slug + "-engine"}>
+                  {engine}
+                </li>
+                {tags.map((tag: any) => {
+                  return (
+                    <li className='equipment-list-item' key={slug + " " + tag}>
+                      {tag}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-            <div className='car-offer-rental-price'>
-              <p>€{(pricePerDay * 1.2).toFixed(2)}/day</p>
-            </div>
-          </div>
-          <div className='car-offer-price-list-row'>
-            <div className='car-offer-rental-duration'>
-              <p>7-14 days</p>
-            </div>
-            <div className='car-offer-rental-price'>
-              <p>€{(pricePerDay * 1.1).toFixed(2)}/day</p>
-            </div>
-          </div>
-          <div className='car-offer-price-list-row'>
-            <div className='car-offer-rental-duration'>
-              <p>14-21 days</p>
-            </div>
-            <div className='car-offer-rental-price'>
-              <p>€{pricePerDay.toFixed(2)}/day</p>
-            </div>
+            <div className='car-offer-description'>{description}</div>
           </div>
         </div>
+        <PriceListSection price={pricePerDay} />
+        <RequirementsAndDepositSection deposit={deposit} />
+        <MileageLimitSection mileageLimit={dailyMileageLimit} />
       </div>
     </div>
   );
