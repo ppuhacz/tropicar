@@ -2,35 +2,34 @@ import React, { useState } from "react";
 import "./styles/photo-gallery-styles.scss";
 import leftArrow from "../../img/left-arrow-gallery.svg";
 import rightArrow from "../../img/right-arrow-gallery.svg";
+import { PhotoGalleryTypes } from "./types/photo-gallery-interface";
 
-function PhotoGallery({ photos, altTag, slug }: any) {
+function PhotoGallery({ photos, altTag, slug }: PhotoGalleryTypes) {
   const [photo, setPhoto] = useState(photos[0]);
   const currentPhotoIndex = photos.indexOf(photo);
 
-  let allPhotos: JSX.Element = photos.map(
-    (reelPhoto: string, index: number) => {
-      const isActive = reelPhoto === photo;
+  let allPhotos = photos.map((reelPhoto: string, index: number) => {
+    const isActive = reelPhoto === photo;
 
-      return (
-        <div className='photo-gallery-reel-photo' key={`photo-${index}`}>
-          <img
-            src={reelPhoto}
-            alt={altTag}
-            width='100%'
-            className={isActive ? "active-photo" : ""}
-            onClick={() => setPhoto(photos[index])}
-          />
-        </div>
-      );
-    }
-  );
+    return (
+      <div className='photo-gallery-reel-photo' key={`photo-${index}`}>
+        <img
+          src={reelPhoto}
+          alt={altTag}
+          width='100%'
+          className={isActive ? "active-photo" : ""}
+          onClick={() => setPhoto(photos[index])}
+        />
+      </div>
+    );
+  });
 
   function handleNext() {
-    setPhoto(photos[currentPhotoIndex + 1]);
+    setPhoto(() => photos[currentPhotoIndex + 1]);
   }
 
   function handlePrevious() {
-    setPhoto(photos[currentPhotoIndex - 1]);
+    setPhoto(() => photos[currentPhotoIndex - 1]);
   }
 
   return (

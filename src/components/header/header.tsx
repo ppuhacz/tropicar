@@ -4,7 +4,7 @@ import logoNew from "../../img/logo-new.webp";
 import menuIcon from "../../img/menu-icon.svg";
 import closeIcon from "../../img/close-icon.svg";
 import { NavLink } from "react-router-dom";
-import useIsMobile from "../../hooks/is-mobile-hook";
+import useIsMobile from "../../hooks/is-mobile";
 
 function Header() {
   const [isActive, setIsActive] = useState<boolean>(false);

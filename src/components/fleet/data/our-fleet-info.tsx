@@ -1,12 +1,9 @@
-// type TextType = {
-//   id: number;
-//   text: string;
-// }
-// type FleetText = {
-//   fleetText: TextType;
-// }
+type FleetText = {
+  id: number;
+  text: string;
+};
 
-const fleetText = [
+const fleetText: FleetText[] = [
   {
     id: 1,
     text: "At Tropicar, we take pride in our commitment to providing our clients with exceptional transportation services. As part of this commitment, we are continuously expanding our fleet size to ensure that we can meet the evolving needs of our customers. Our team is dedicated to delivering the highest level of service and satisfaction, and we work tirelessly to exceed your expectations. Trust Tropicar to provide you with reliable, comfortable, and affordable transportation every time.",

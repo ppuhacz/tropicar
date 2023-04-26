@@ -8,6 +8,8 @@ type Props = {
 const MileageLimitSection = (props: Props) => {
   const { mileageLimit } = props;
 
+  // TODO: Add an enum that will add the possibility of changing KMs into Miles and add the mileage limit to backend
+
   return (
     <section id='car-offer-mileage-limit'>
       <div className='car-offer-separator'>

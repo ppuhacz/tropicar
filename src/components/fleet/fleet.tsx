@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from "react";
-import verticalLine from "../../img/vertical-line.svg";
+// importing other components
 import getRecent from "../../services/offers/getRecent";
-import "./styles/fleet-styles.scss";
 import OffersPanels from "../offer-panels/offers-panels";
 import LoadingCircle from "../loading-circle/loading-cricle";
 import fleetText from "./data/our-fleet-info";
 import ScrollToTop from "../scroll-to-top/scroll-to-top";
+// importing types
+import { Offer } from "./types/fleet-interface";
+// importing styles
+import "./styles/fleet-styles.scss";
+//importing images
+import verticalLine from "../../img/vertical-line.svg";
 
 const Fleet = () => {
-  const [offers, setOffers] = useState<any>([]);
+  const [offers, setOffers] = useState<Offer[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const offersData = await getRecent(); // fetching 5 of the most recent offers
+      const offersData: any = await getRecent();
       setOffers(offersData);
     };
 

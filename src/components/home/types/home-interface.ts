@@ -1,4 +1,4 @@
-export interface CarOffer {
+export interface Offer {
   ID: number;
   brand: string;
   model: string;
@@ -10,9 +10,8 @@ export interface CarOffer {
   photo3: string;
   pricePerDay: number;
   tags: string[];
+  status: string;
   slug: string;
   description: string;
   deposit: number;
-  dailyMileageLimitKM: string;
-  dailyMileageLimitMiles: string;
 }

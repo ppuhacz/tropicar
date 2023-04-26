@@ -32,6 +32,11 @@
     border-radius: 50%;
     background-color: $gray-transparent-600;
     transform: translate(0, -50%);
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
     img {
       width: 10px;
       height: 10px;

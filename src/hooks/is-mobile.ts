@@ -6,7 +6,8 @@ function useIsMobile() {
   useEffect(() => {
     const handleResize = () => {
       // check if screen is lower than 768px wide, therefore if it's a movile or desktop device
-      setIsMobile(window.innerWidth < 768);
+      const windowWidth = window.innerWidth < 768;
+      setIsMobile(windowWidth);
     };
 
     handleResize();

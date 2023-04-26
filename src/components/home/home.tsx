@@ -14,14 +14,15 @@ import verticalLine from "../../img/vertical-line.svg";
 import tickIcon from "../../img/rectangular-tick-icon.svg";
 import SlideShow from "./slideshow";
 import LoadingCircle from "../loading-circle/loading-cricle";
+import { Offer } from "./types/home-interface";
 
 const Home = () => {
-  const [offers, setOffers] = useState<any>([]);
+  const [offers, setOffers] = useState<Offer[]>([]);
 
   useEffect(() => {
     const RECENT_OFFERS: number = 5;
     const fetchData = async () => {
-      const offersData = await getRecent(RECENT_OFFERS);
+      const offersData: any = await getRecent(RECENT_OFFERS);
       setOffers(offersData);
     };
 

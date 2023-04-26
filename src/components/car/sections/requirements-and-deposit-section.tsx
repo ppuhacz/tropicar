@@ -1,22 +1,13 @@
 import React from "react";
 import verticalLine from "../../../img/vertical-line.svg";
+import { requirements } from "./data/requirements";
 
-interface Props {
+type Props = {
   deposit: number;
-}
-
-interface Requirements {
-  age: number;
-  driversLicensePeriod: number;
-}
+};
 
 const RequirementsAndDepositSection = (props: Props) => {
   const { deposit } = props;
-
-  const requirements: Requirements = {
-    age: 25,
-    driversLicensePeriod: 2,
-  };
 
   const { age, driversLicensePeriod } = requirements;
 

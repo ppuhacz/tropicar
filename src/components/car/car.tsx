@@ -63,7 +63,7 @@ const Car = () => {
                 <li className='offer-car-engine' key={slug + "-engine"}>
                   {engine}
                 </li>
-                {tags.map((tag: any) => {
+                {tags.map((tag: string) => {
                   return (
                     <li className='equipment-list-item' key={slug + " " + tag}>
                       {tag}
