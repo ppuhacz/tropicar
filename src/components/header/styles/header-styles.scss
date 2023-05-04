@@ -93,13 +93,6 @@ li {
   align-items: center;
   list-style: none;
   margin: 0;
-<<<<<<< HEAD
-  width: 1;
-  li {
-    &:not(:last-child) {
-      margin-right: 27px;
-    }
-=======
 
   a {
     &:not(:last-child) {
@@ -112,7 +105,6 @@ li {
     justify-content: center;
     height: 53px;
     width: 120px;
->>>>>>> work-in-progress
     padding: 0 15px;
 
   }
