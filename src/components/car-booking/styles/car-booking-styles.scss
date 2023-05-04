@@ -1,0 +1,37 @@
+@import '../../../config/styles/style-variables.scss';
+
+.booking-container {
+  width: $pageWidth;
+  margin: 25px auto;
+}
+
+.booking-form-wrapper {
+  margin-top: 50px;
+}
+.booking-personal-info {
+  margin: auto;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    margin: 0 0 10px 5px;
+  }
+
+  input {
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    margin-bottom: 25px;
+    background-color: $gray-transparent-400;
+    outline: 0;
+    border: 0;
+    border-left: 2px solid $orange-400;
+
+  }
+
+  .required {
+    color: $orange-400;
+  }
+}

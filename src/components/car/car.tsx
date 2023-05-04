@@ -10,14 +10,12 @@ import MileageLimitSection from "./sections/mileage-limit-section";
 import PhotoGallery from "./photo-gallery";
 import getCarInfo from "../../services/offers/getCarInfo";
 import LoadingCircle from "../loading-circle/loading-cricle";
-import BookingFormSection from "./sections/booking-form-section";
+import BookingFormSection from "./sections/contact-form-section";
 
 const Car = () => {
   const location = useLocation();
-  const [carInfo, setcarInfo] = useState<CarOffer[]>(location.state || []);
-  const [isLoading, setIsLoading] = useState<boolean>(
-    location.state ? false : true
-  );
+  const [carInfo, setcarInfo] = useState<CarOffer>(location.state || []);
+  const [isLoading, setIsLoading] = useState<boolean>(!location.state);
 
   useEffect(() => {
     const CAR_SLUG_URL: string = location.pathname.slice(7);
@@ -46,9 +44,17 @@ const Car = () => {
     description,
     slug,
     deposit,
-  }: any = carInfo;
+    status,
+  }: CarOffer = carInfo;
 
   const photos = [photo1, photo2, photo3];
+
+  const isAvailable =
+    status === "Available" ? (
+      <p className='status status-available'>✓ Available</p>
+    ) : (
+      <p className='status status-unavailable'>✖ Unavailable</p>
+    );
 
   const dailyMileageLimit: number = 200;
 
@@ -63,9 +69,12 @@ const Car = () => {
                 alt='vertical line'
                 className='vertical-line'
               />
-              <h2>
-                {brand} {model}
-              </h2>
+              <span className='car-offer-title'>
+                <h2>
+                  {brand} {model}
+                </h2>
+                {isAvailable}
+              </span>
             </span>
           </div>
           <div className='car-offer-info-container'>

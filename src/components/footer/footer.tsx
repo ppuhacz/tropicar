@@ -10,32 +10,33 @@ import facebookIcon from "../../img/facebook-icon.svg";
 export const Footer = () => {
   const navigationList = (
     <>
-      <NavLink to="/fleet">
-        <li className="footer-navigation-item">Our cars</li>
-      </NavLink>
-      <NavLink to="/contact-us">
-        <li className="footer-navigation-item">Contact us</li>
-      </NavLink>
-      <NavLink to="/booking">
-        <li className="footer-navigation-item">Book a car</li>
-      </NavLink>
+      <li className='footer-navigation-item'>
+        <NavLink to='/fleet'>Our cars </NavLink>
+      </li>
+      <li className='footer-navigation-item'>
+        <NavLink to='/contact-us'>Contact us </NavLink>
+      </li>
+
+      <li className='footer-navigation-item'>
+        <NavLink to='/terms-of-service'>Terms of service</NavLink>
+      </li>
     </>
   );
 
   return (
     <footer>
-      <div className="footer-container">
-        <div className="footer-section">
-          <div className="footer-about-us">
+      <div className='footer-container'>
+        <div className='footer-section'>
+          <div className='footer-about-us'>
             <span>
               <img
                 src={verticalLine}
-                alt="vertical line"
-                className="vertical-line"
+                alt='vertical line'
+                className='vertical-line'
               />
               <h4>About us</h4>
             </span>
-            <p className="footer-about-us">
+            <p className='footer-about-us'>
               Tropicar is a premium exotic car rental service that offers the
               ultimate driving experience in tropical destinations. With a wide
               selection of high-end sports cars, luxury convertibles, and SUVs,
@@ -43,23 +44,23 @@ export const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="footer-section">
+        <div className='footer-section'>
           <span>
             <img
               src={verticalLine}
-              alt="vertical line"
-              className="vertical-line"
+              alt='vertical line'
+              className='vertical-line'
             />
             <h4>Menu</h4>
           </span>
           <ul>{navigationList}</ul>
         </div>
-        <div className="footer-section contact">
+        <div className='footer-section contact'>
           <span>
             <img
               src={verticalLine}
-              alt="vertical line"
-              className="vertical-line"
+              alt='vertical line'
+              className='vertical-line'
             />
             <h4>Contact</h4>
           </span>
@@ -67,9 +68,9 @@ export const Footer = () => {
           <p>+48 000 000 000</p>
           <p>Rynek Staromiejski 6/7,</p>
           <p>75-007 Koszalin</p>
-          <img src={facebookIcon} alt="facebook" />
-          <a href="https://github.com/ppuhacz" target="_blank" rel="noreferrer">
-            <img src={githubIcon} alt="githbub" />
+          <img src={facebookIcon} alt='facebook' />
+          <a href='https://github.com/ppuhacz' target='_blank' rel='noreferrer'>
+            <img src={githubIcon} alt='githbub' />
           </a>
         </div>
       </div>

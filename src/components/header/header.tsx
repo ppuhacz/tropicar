@@ -17,18 +17,18 @@ function Header() {
 
   const listItems = (
     <>
-      <NavLink to='/fleet'>
-        <li className='navigation-item'>Our cars</li>
-      </NavLink>
-      <NavLink to='/contact-us'>
-        <li className='navigation-item'>Contact us</li>
-      </NavLink>
-      <NavLink to='/login'>
-        <li className='navigation-item'>Sign in</li>
-      </NavLink>
-      <NavLink to='/booking'>
-        <li className='navigation-item navigation-book-a-car'>Book a car</li>
-      </NavLink>
+      <li className='navigation-item'>
+        <NavLink to='/fleet'>Our cars </NavLink>
+      </li>
+      <li className='navigation-item'>
+        <NavLink to='/contact-us'>Contact us </NavLink>
+      </li>
+      <li className='navigation-item'>
+        <NavLink to='/login'>Sign in </NavLink>
+      </li>
+      <li className='navigation-item navigation-book-a-car'>
+        <NavLink to='/fleet'>Book a car </NavLink>
+      </li>
     </>
   );
 
