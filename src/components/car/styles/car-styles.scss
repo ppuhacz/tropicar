@@ -16,7 +16,7 @@
     font-size: 24px;
   }
 
-   span {
+  span {
     margin: auto;
     width: $pageWidth;
     display: flex;
@@ -30,11 +30,43 @@
     object-fit:cover
   }
 
-      @media (min-width: 1046px) {
-    .vertical-line {
-       height: 4rem;
+  .status {
+    display: none;
+
+    @media (min-width: 390px) {
+      display: flex;
+      justify-content: center;
+      font-size: 0.8rem;
+      margin-left: 10px;
+      padding: 5px 0;
+      border-radius: 20px;
+      height: 27px;
+      &-available {
+        min-width: 80px;
+        background-color: $green-200;
+      }
+      &-unavailable {
+        min-width: 90px;
+        background-color: $red-200;
+      }
     }
-    h2, h3{
+
+    @media (min-width: 425px) {
+      margin-left: 10px;
+    }
+
+    @media (min-width:768px) {
+      margin-left: 50px;
+    }
+  }
+
+  @media (min-width: 1046px) {
+
+    .vertical-line {
+      height: 4rem;
+    }
+
+    h2, h3 {
       font-size: 2rem;
       }
     }

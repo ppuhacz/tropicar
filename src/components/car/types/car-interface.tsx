@@ -11,6 +11,7 @@ export interface CarOffer {
   pricePerDay: number;
   tags: string[];
   slug: string;
+  status: string;
   description: string;
   deposit: number;
   dailyMileageLimitKM: string;

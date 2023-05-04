@@ -27,7 +27,11 @@ function Header() {
         <NavLink to='/login'>Sign in </NavLink>
       </li>
       <li className='navigation-item navigation-book-a-car'>
+<<<<<<< HEAD
         <NavLink to='/booking'>Book a car </NavLink>
+=======
+        <NavLink to='/fleet'>Book a car </NavLink>
+>>>>>>> work-in-progress
       </li>
     </>
   );

@@ -44,7 +44,8 @@ footer {
     list-style-type: none;
     line-height: 35px;
     font-size: 0.87rem;
-    &:hover {
+
+    a:hover {
       color: $orange-400;
     }
   }

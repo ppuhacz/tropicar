@@ -5,9 +5,10 @@ import FleetPage from "../pages/fleet-page";
 import PageNotFoundPage from "../pages/page-not-found";
 import ContactPage from "../pages/contact-page";
 import LoginPage from "../pages/login-page";
-import BookingPage from "../pages/booking-page";
+
 import CarPage from "../pages/car-page";
 import CarBookingPage from "../pages/booking-car-page";
+import TermsOfServicePage from "../pages/term-of-service-page";
 
 const router: object = createBrowserRouter([
   {
@@ -35,12 +36,12 @@ const router: object = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/booking",
-    element: <BookingPage />,
-  },
-  {
     path: "/booking/:id",
     element: <CarBookingPage />,
+  },
+  {
+    path: "/terms-of-service",
+    element: <TermsOfServicePage />,
   },
 ]);
 
