@@ -5,8 +5,7 @@ import CarBooking from "../components/car-booking/car-booking";
 const CarBookingPage = () => {
   return (
     <Layout>
-      {/* <CarBooking /> */}
-      <h2>Booking (work in progress)</h2>
+      <CarBooking />
     </Layout>
   );
 };
