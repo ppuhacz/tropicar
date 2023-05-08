@@ -8,8 +8,7 @@ import LoadingCircle from "../loading-circle/loading-cricle";
 import "./styles/car-booking-styles.scss";
 import PersonalInfoForm from "./personal-info-form";
 import CarInfoForm from "./car-info-form";
-
-// WORK IN PROGRESS
+import PaymentMethodRadio from "./payment-method-radio";
 
 const CarBooking = () => {
   const location = useLocation();
@@ -47,6 +46,17 @@ const CarBooking = () => {
             <form id='booking-form'>
               <PersonalInfoForm />
               <CarInfoForm carInfo={carInfo} />
+              <div className='car-offer-separator'>
+                <span>
+                  <img
+                    src={verticalLine}
+                    alt='vertical line'
+                    className='vertical-line'
+                  />
+                  <h2>Payment method</h2>
+                </span>
+              </div>
+              <PaymentMethodRadio />
               {/* <button type='submit'>Book!</button> */}
             </form>
           </div>

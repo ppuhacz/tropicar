@@ -14,6 +14,6 @@ export interface CarOffer {
   status: string;
   description: string;
   deposit: number;
-  dailyMileageLimitKM: string;
-  dailyMileageLimitMiles: string;
+  dailyMileageLimitKM: number;
+  dailyMileageLimitMiles: number;
 }

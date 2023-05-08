@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/personal-info-form.scss";
 
 const PersonalInfoForm = () => {
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [peselNumber, setPeselNumber] = useState<string>("");
+
+  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const cleanedValue = e.target.value.replace(/\D/g, "");
+    setPhoneNumber(cleanedValue);
+  };
+
+  const handlePeselNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const cleanedValue = e.target.value.replace(/\D/g, "");
+    setPeselNumber(cleanedValue);
+  };
   return (
     <div className='booking-personal-info'>
       <div className='input-wrapper'>
@@ -37,6 +49,9 @@ const PersonalInfoForm = () => {
           pattern='^\d{9,11}$'
           placeholder=' '
           required
+          onChange={handlePhoneNumberChange}
+          value={phoneNumber}
+          maxLength={11}
         />
         <div className='label-wrapper'>
           <label htmlFor='phone-number'>
@@ -71,7 +86,15 @@ const PersonalInfoForm = () => {
         </div>
       </div>
       <div className='input-wrapper'>
-        <input type='text' id='pesel' placeholder=' ' pattern='[0-9]{11}' />
+        <input
+          type='text'
+          id='pesel'
+          placeholder=' '
+          pattern='[0-9]{11}'
+          onChange={handlePeselNumberChange}
+          value={peselNumber}
+          maxLength={11}
+        />
         <div className='label-wrapper'>
           <label htmlFor='pesel' id='pesel-label'>
             PESEL

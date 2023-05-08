@@ -1,0 +1,60 @@
+@import '../../../config/styles/style-variables.scss';
+.radio-container {
+  margin: $carOfferMargin;
+
+  .radio-wrapper {
+    margin: 15px 0;
+    list-style-type: none;
+    width: 100%;
+    height: 50px;
+    background-color: $gray-transparent-400;
+    display: flex;
+
+
+    label {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .radio-tick-icon {
+      height: 20px;
+      filter: brightness(0) saturate(100%) invert(32%) sepia(45%) saturate(1082%) hue-rotate(339deg) brightness(95%) contrast(89%);
+    }
+
+    input[type="radio"] {
+      -webkit-appearance: none;
+      appearance: none;
+      /* For iOS < 15 to remove gradient background */
+      background-color: #fff;
+      /* Not removed via appearance */
+      margin: 0;
+    }
+
+    input[type="radio"]:checked + label .radio-tick-icon {
+      filter: none;
+    }
+  }
+}
+.payment-upon-delivery-container {
+  width: $pageWidth;
+
+  .payment-upon-delivery-wrapper {
+    max-width: 360px;
+    background-color: $gray-transparent-400;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .payment-upon-delivery-icon {
+    img {
+      height: 60px;
+      margin: 10px 30px 10px 10px;
+    }
+
+  }
+  }

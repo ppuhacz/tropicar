@@ -6,4 +6,6 @@ export interface CarInfo {
   pricePerDay: number;
   status: string;
   slug: string;
+  deposit: number;
+  dailyMileageLimitKM: number;
 }
