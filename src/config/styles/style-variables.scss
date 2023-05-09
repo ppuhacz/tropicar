@@ -13,13 +13,21 @@ $gray-transparent-400: #5559629d;
 $gray-transparent-600: #35373d9d;
 $gray-transparent-800: #2223279d;
 
+// Red
 
+$red-100: #f82036;
+$red-200: #c21525;
 
 // Orange
 
 $orange-400: #FF7B00;
 $orange-500: #D45800;
-$orange-700: #AA3500;
+$orange-700: #a34c24;
+
+// Green
+
+$green-100: #57ca25;
+$green-200: #44a01c;
 
 // Brown accent
 
@@ -28,12 +36,14 @@ $brown-accent-500: #7F7059;
 
 // Page width
 
-$pageWidth: 86vw;
+$pageWidth: 85vw;
+$bookingPageWidth1440px: 60vw;
+$bookingPageWidth2560px: 40vw;
 
 // Car offer margins
 
 $carOfferMargin: 30px 0;
 
-// Availability colors
-$green-200: #44a01c;
-$red-200: #c21525
+// Autofill font color
+
+$autoFillBackgroundColor: #3F434A

@@ -45,6 +45,7 @@ const Car = () => {
     slug,
     deposit,
     status,
+    dailyMileageLimitKM,
   }: CarOffer = carInfo;
 
   const photos = [photo1, photo2, photo3];
@@ -55,8 +56,6 @@ const Car = () => {
     ) : (
       <p className='status status-unavailable'>✖ Unavailable</p>
     );
-
-  const dailyMileageLimit: number = 200;
 
   return (
     <div className='car-offer-container'>
@@ -111,7 +110,7 @@ const Car = () => {
           </div>
           <PriceListSection price={pricePerDay} />
           <RequirementsAndDepositSection deposit={deposit} />
-          <MileageLimitSection mileageLimit={dailyMileageLimit} />
+          <MileageLimitSection mileageLimit={dailyMileageLimitKM} />
           <BookingFormSection />
         </div>
       ) : (
