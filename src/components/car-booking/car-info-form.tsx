@@ -8,7 +8,6 @@ const CarInfoForm = ({ carInfo }: CarInfoType) => {
 
   const { brand, model, photo1, pricePerDay, deposit, dailyMileageLimitKM } =
     carInfo;
-  console.log(carInfo);
 
   const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStartDate(e.target.value);
