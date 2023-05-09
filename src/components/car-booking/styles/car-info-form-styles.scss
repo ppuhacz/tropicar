@@ -8,8 +8,6 @@
   flex-wrap: wrap;
   background-color: $gray-transparent-600;
 
-
-
   .car-info-form-cover {
     text-align: center;
     h3 {
@@ -68,5 +66,8 @@
     }
   }
 
+  @media (min-width: 1024px) {
+    margin: 0;
+  }
 }
 

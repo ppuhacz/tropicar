@@ -109,9 +109,6 @@ const PaymentMethodRadio = () => {
           </label>
         </div>
       </div>
-      <small className='payment-operator'>
-        Payments are proccessed by: xxxxxx
-      </small>
     </div>
   );
 

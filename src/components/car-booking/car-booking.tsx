@@ -46,8 +46,10 @@ const CarBooking = () => {
           </div>
           <div className='booking-form-wrapper'>
             <form id='booking-form'>
-              <PersonalInfoForm />
-              <CarInfoForm carInfo={carInfo} />
+              <div className='rental-information'>
+                <PersonalInfoForm />
+                <CarInfoForm carInfo={carInfo} />
+              </div>
               <div className='car-offer-separator'>
                 <span>
                   <img
@@ -108,7 +110,7 @@ const CarBooking = () => {
                 </small>
               </div>
               <button type='submit' className='submit-form-button'>
-                Book
+                Book now
               </button>
             </form>
           </div>

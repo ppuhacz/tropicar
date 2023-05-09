@@ -2,62 +2,79 @@
 .booking-form-payment-method-wrapper {
   margin: 20px 0 50px;
 
-.radio-container {
-  margin-bottom: 40px;
+  .radio-container {
+    margin-bottom: 40px;
 
-  .radio-wrapper {
-    margin: 20px 0;
-    width: 100%;
-    max-width: 400px;
-    height: 50px;
-    background-color: $gray-transparent-400;
-    display: flex;
-
-    label {
+    .radio-wrapper {
+      margin: 20px 0;
       width: 100%;
+      max-width: 400px;
+      height: 50px;
+      background-color: $gray-transparent-400;
+      display: flex;
+
+      label {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        cursor: pointer;
+      }
+
+      .radio-tick-icon {
+        height: 20px;
+        filter: brightness(0) saturate(100%) invert(40%) sepia(11%) saturate(263%) hue-rotate(190deg) brightness(97%) contrast(86%);
+      }
+
+      input[type="radio"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        margin: 0;
+      }
+
+      input[type="radio"]:checked + label .radio-tick-icon {
+        filter: none;
+      }
+    }
+  }
+
+  .online-payment-form {
+    margin: 0;
+    input {
+      max-width: 400px;
+
+    }
+  }
+
+  .payment-upon-delivery-container {
+    width: $pageWidth;
+
+    .payment-upon-delivery-wrapper {
+      max-width: 400px;
+      background-color: $gray-transparent-400;
+      height: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      cursor: pointer;
+      padding: 10px;
     }
 
-    .radio-tick-icon {
-      height: 20px;
-      filter: brightness(0) saturate(100%) invert(32%) sepia(45%) saturate(1082%) hue-rotate(339deg) brightness(85%) contrast(89%);
+    .payment-upon-delivery-icon {
+      img {
+        height: 60px;
+        margin: 10px 30px 10px 10px;
+      }
     }
 
-    input[type="radio"] {
-      -webkit-appearance: none;
-      appearance: none;
-      background-color: #fff;
-      margin: 0;
+    @media (min-width: 1440px) {
+      width: $bookingPageWidth1440px;
     }
 
-    input[type="radio"]:checked + label .radio-tick-icon {
-      filter: none;
+    @media (min-width: 2560px){
+      width: $bookingPageWidth2560px;
     }
-  }
 
-}
-.payment-upon-delivery-container {
-  width: $pageWidth;
-
-  .payment-upon-delivery-wrapper {
-    max-width: 360px;
-    background-color: $gray-transparent-400;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .payment-upon-delivery-icon {
-    img {
-      height: 60px;
-      margin: 10px 30px 10px 10px;
-    }
-  }
   }
 }
 
@@ -66,18 +83,18 @@
     display: flex;
     gap: 25px;
   }
+
   .online-payment-form {
     display: flex;
     width: 100%;
-    max-width: 95%;
-    //
-    // Tu pokomibonować trzeba bo coś nie działa jak powinno
-    //
+    max-width: 100%;
     display: flex;
-    justify-content: space-between;
+    gap: 20px;
+
     .input-wrapper {
       width: calc(33.33% - 15px);
-      margin-right: 15px;
+      max-width: 400px;
+      margin: 0;
     }
   }
 }
