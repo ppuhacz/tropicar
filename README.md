@@ -1,4 +1,4 @@
-https://resilient-cheesecake-f53242.netlify.app/
+https://tropicar.netlify.app/
 
 # TropiCar
 
