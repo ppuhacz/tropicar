@@ -9,7 +9,7 @@ Currently completed pages:
   <li>Home</li>
   <li>Fleet</li>
   <li>Car details</li>
-  <li>Booking form</li>
+  <li>Booking form (no validation yet)</li>
 </ul>
 
 # Built with
