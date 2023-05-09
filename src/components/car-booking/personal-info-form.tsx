@@ -101,9 +101,6 @@ const PersonalInfoForm = () => {
           </label>
         </div>
       </div>
-      <small>
-        <span className='required'>*</span> - required
-      </small>
     </div>
   );
 };

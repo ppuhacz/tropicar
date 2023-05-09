@@ -79,6 +79,7 @@ const CarInfoForm = ({ carInfo }: CarInfoType) => {
           id='start-date'
           value={startDate}
           onChange={handleStartDateChange}
+          required
         />
         <input
           type='date'
@@ -86,6 +87,7 @@ const CarInfoForm = ({ carInfo }: CarInfoType) => {
           value={endDate}
           onChange={handleEndDateChange}
           min={startDate}
+          required
         />
       </div>
       <div className='car-info-form-details-wrapper'>

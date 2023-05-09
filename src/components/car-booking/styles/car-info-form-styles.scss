@@ -36,7 +36,14 @@
       border: 0;
       border-left: 2px solid $orange-400;
       display: block;
+      font-family:'Segoe UI', 'mulish', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
     }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(45%) sepia(75%) saturate(1532%) hue-rotate(2deg) brightness(105%) contrast(103%);  }
+
   }
 
   .car-info-form-details-wrapper {
