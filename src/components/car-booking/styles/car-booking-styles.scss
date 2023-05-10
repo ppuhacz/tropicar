@@ -108,6 +108,7 @@
     transition: all 0.1s linear;
 
     &:hover {
+      cursor: pointer;
       background-color: $orange-400;
       transition: all 0.1s linear;
     }

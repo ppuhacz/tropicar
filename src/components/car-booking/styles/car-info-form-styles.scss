@@ -59,7 +59,20 @@
       border-top: 1px solid rgba(255, 255, 255, 0.336);
       font-size: 0.87rem;
 
-      span {
+      span{
+        width: 100px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      input {
+        width: 100%;
+        text-align: end;
+        background-color: transparent;
+        outline: none;
+        border: 0;
+        cursor:default;
+      }
+      span, input {
         color: $orange-400;
         font-weight: 600;
       }

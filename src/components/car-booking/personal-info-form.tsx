@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { PersonalInfoFormProps } from "./types/info-form-props-interface";
 import "./styles/personal-info-form.scss";
 
-const PersonalInfoForm = () => {
+const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [peselNumber, setPeselNumber] = useState<string>("");
 
@@ -17,7 +18,12 @@ const PersonalInfoForm = () => {
   return (
     <div className='booking-personal-info'>
       <div className='input-wrapper'>
-        <input type='text' id='first-name' placeholder=' ' required />
+        <input
+          type='text'
+          id='first-name'
+          placeholder=' '
+          {...register("firstName", { required: true })}
+        />
         <div className='label-wrapper'>
           <label htmlFor='first-name'>
             First name <span className='required'>*</span>
@@ -25,7 +31,12 @@ const PersonalInfoForm = () => {
         </div>
       </div>
       <div className='input-wrapper'>
-        <input type='text' id='last-name' placeholder=' ' required />
+        <input
+          type='text'
+          id='last-name'
+          placeholder=' '
+          {...register("lastName", { required: true })}
+        />
 
         <div className='label-wrapper'>
           <label htmlFor='last-name'>
@@ -34,7 +45,12 @@ const PersonalInfoForm = () => {
         </div>
       </div>
       <div className='input-wrapper'>
-        <input type='email' id='e-mail' placeholder=' ' required />
+        <input
+          type='email'
+          id='e-mail'
+          placeholder=' '
+          {...register("email", { required: true })}
+        />
 
         <div className='label-wrapper'>
           <label htmlFor='e-mail'>
@@ -48,10 +64,10 @@ const PersonalInfoForm = () => {
           id='phone-number'
           pattern='^\d{9,11}$'
           placeholder=' '
-          required
-          onChange={handlePhoneNumberChange}
           value={phoneNumber}
           maxLength={11}
+          {...register("phoneNumber", { required: true })}
+          onChange={handlePhoneNumberChange}
         />
         <div className='label-wrapper'>
           <label htmlFor='phone-number'>
@@ -60,7 +76,12 @@ const PersonalInfoForm = () => {
         </div>
       </div>
       <div className='input-wrapper'>
-        <input type='text' id='address' placeholder=' ' required />
+        <input
+          type='text'
+          id='address'
+          placeholder=' '
+          {...register("address", { required: true })}
+        />
         <div className='label-wrapper'>
           <label htmlFor='address'>
             Address of permanent residence
@@ -69,7 +90,12 @@ const PersonalInfoForm = () => {
         </div>
       </div>
       <div className='input-wrapper'>
-        <input type='text' id='postal-code' placeholder=' ' required />
+        <input
+          type='text'
+          id='postal-code'
+          placeholder=' '
+          {...register("postalCode", { required: true })}
+        />
         <div className='label-wrapper'>
           <label htmlFor='postal-code'>
             Postal code <span className='required'>*</span>
@@ -77,7 +103,12 @@ const PersonalInfoForm = () => {
         </div>
       </div>
       <div className='input-wrapper'>
-        <input type='text' id='city-town' placeholder=' ' required />
+        <input
+          type='text'
+          id='city-town'
+          placeholder=' '
+          {...register("cityTown", { required: true })}
+        />
 
         <div className='label-wrapper'>
           <label htmlFor='city-town'>
@@ -91,9 +122,10 @@ const PersonalInfoForm = () => {
           id='pesel'
           placeholder=' '
           pattern='[0-9]{11}'
-          onChange={handlePeselNumberChange}
           value={peselNumber}
           maxLength={11}
+          {...register("pesel", { required: false })}
+          onChange={handlePeselNumberChange}
         />
         <div className='label-wrapper'>
           <label htmlFor='pesel' id='pesel-label'>

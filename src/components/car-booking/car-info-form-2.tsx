@@ -2,34 +2,26 @@ import React, { useEffect, useState } from "react";
 import "./styles/car-info-form-styles.scss";
 import { CarInfoType } from "./types/car-info-form-interface";
 
-const CarInfoForm = ({
-  carInfo,
-  register,
-  errors,
-  setTotalPrice,
-  setTotalMileageLimit,
-  setTotalDays,
-}: CarInfoType) => {
-  const [startDateValue, setStartDateValue] = useState<string>("");
-  const [endDateValue, setEndDateValue] = useState<string>("");
-
+const CarInfoForm = ({ carInfo, register, errors }: CarInfoType) => {
   const { brand, model, photo1, pricePerDay, deposit, dailyMileageLimitKM } =
     carInfo;
+  const [calculatedPricePerDay, setCalculatedPricePerDay] = useState<
+    string | number
+  >(0);
+  const [totalPrice, setTotalPrice] = useState<string | number>(0);
+  const [totalDays, setTotalDays] = useState<string | number>(0);
+  const [totalMileageLimit, setTotalMileageLimit] = useState<string | number>(
+    0
+  );
 
   const handleStartDateValueChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setStartDateValue(e.target.value);
-    if (endDateValue && new Date(endDateValue) < new Date(e.target.value)) {
-      setEndDateValue("");
-    }
   };
 
   const handleEndDateValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEndDateValue(e.target.value);
-    if (startDateValue && new Date(startDateValue) > new Date(e.target.value)) {
-      setStartDateValue("");
-    }
   };
 
   const calculateDays = (): number => {
@@ -68,20 +60,30 @@ const CarInfoForm = ({
       const price: number = calculatePricePerDay();
       const days: number = calculateDays();
       const totalPrice: number = price * days;
+      setTotalPrice(price);
+      register("totalPrice", { value: totalPrice });
       return (totalPrice + deposit).toFixed(2);
     }
     return 0;
   };
 
+  const [startDateValue, setStartDateValue] = useState<string>("");
+  const [endDateValue, setEndDateValue] = useState<string>("");
+
   useEffect(() => {
+    const pricePerDay = calculatePricePerDay();
+    setCalculatedPricePerDay(pricePerDay);
+
     const price = calculatePrice();
     setTotalPrice(price);
-  }, [startDateValue, endDateValue]);
+    register("totalPrice", { value: totalPrice });
 
-  const calculatedPricePerDay = calculatePricePerDay().toFixed(2);
-  const totalPrice = calculatePrice();
-  const totalDays = calculateDays();
-  const totalMileageLimit = Number(calculateDays()) * dailyMileageLimitKM;
+    const days = calculateDays();
+    setTotalDays(days);
+
+    const mileageLimit = days * dailyMileageLimitKM;
+    setTotalMileageLimit(mileageLimit);
+  }, [startDateValue, endDateValue, dailyMileageLimitKM, deposit, pricePerDay]);
 
   return (
     <div className='car-info-form-wrapper'>

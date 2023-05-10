@@ -23,11 +23,10 @@ function Header() {
       <li className='navigation-item'>
         <NavLink to='/contact-us'>Contact us </NavLink>
       </li>
-      <li className='navigation-item'>
-        <NavLink to='/login'>Sign in </NavLink>
-      </li>
       <li className='navigation-item navigation-book-a-car'>
-        <NavLink to='/fleet'>Book a car </NavLink>
+        <NavLink to='/fleet' className='book-a-car-link'>
+          Book a car{" "}
+        </NavLink>
       </li>
     </>
   );

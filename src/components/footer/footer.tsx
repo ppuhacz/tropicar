@@ -16,7 +16,6 @@ export const Footer = () => {
       <li className='footer-navigation-item'>
         <NavLink to='/contact-us'>Contact us </NavLink>
       </li>
-
       <li className='footer-navigation-item'>
         <NavLink to='/terms-of-service'>Terms of service</NavLink>
       </li>

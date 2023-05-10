@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { PersonalInfoFormProps } from "./types/info-form-props-interface";
 import "./styles/payment-method-radio-styles.scss";
 import CashAndCardIcon from "../../img/cash-and-card-payment-icon.svg";
 import tickIcon from "../../img/rectangular-tick-icon.svg";
 
-const PaymentMethodRadio = () => {
+const PaymentMethodRadio = ({ register, errors }: PersonalInfoFormProps) => {
   const [paymentMethod, setPaymentMethod] = useState<string>("online");
   const [creditCardNumber, setCreditCardNumber] = useState<string>("");
   const [expirationDate, setExpirationDate] = useState<string>("");
@@ -66,6 +67,7 @@ const PaymentMethodRadio = () => {
           required
           pattern='[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}'
           value={creditCardNumber}
+          {...register("creditCardNumber", { required: true })}
           onChange={handleCreditCardNumberChange}
           maxLength={19}
         />
@@ -82,12 +84,13 @@ const PaymentMethodRadio = () => {
           placeholder=' '
           required
           value={expirationDate}
+          {...register("creditCardExpirationDate", { required: true })}
           onChange={handleExpirationDateChange}
           pattern='[0-9]{2} / [0-9]{2}'
           maxLength={7}
         />
         <div className='label-wrapper'>
-          <label htmlFor='credit-card-number'>
+          <label htmlFor='credit-card-expiration-date'>
             Expiration date (mm/yy) <span className='required'>*</span>
           </label>
         </div>
@@ -100,6 +103,7 @@ const PaymentMethodRadio = () => {
           required
           pattern='[0-9]{3}'
           maxLength={3}
+          {...register("creditCardSecurityCode", { required: true })}
           onChange={handleSecurityCodeChange}
           value={securityCode}
         />
@@ -137,7 +141,7 @@ const PaymentMethodRadio = () => {
             type='radio'
             value='Online payment'
             id='online'
-            name='payment-method'
+            {...register("paymentMethod")}
             onChange={() => handleChange("online")}
             defaultChecked
           />
@@ -151,7 +155,7 @@ const PaymentMethodRadio = () => {
             type='radio'
             value='Delivery'
             id='delivery'
-            name='payment-method'
+            {...register("paymentMethod")}
             onChange={() => handleChange("delivery")}
           />
           <label htmlFor='delivery'>

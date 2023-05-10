@@ -1,21 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import tickIcon from "../../img/rectangular-tick-icon.svg";
-import verticalLine from "../../img/vertical-line.svg";
-import ScrollToTop from "../scroll-to-top/scroll-to-top";
+import { NavLink } from "react-router-dom";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { useLocation, useNavigate } from "react-router";
+// Importing data fetch function
 import getCarInfo from "../../services/offers/getCarInfo";
-import { CarInfo } from "./types/car-booking-interface";
-import LoadingCircle from "../loading-circle/loading-cricle";
-import "./styles/car-booking-styles.scss";
+// Importing components
 import PersonalInfoForm from "./personal-info-form";
 import CarInfoForm from "./car-info-form";
 import PaymentMethodRadio from "./payment-method-radio";
-import { NavLink } from "react-router-dom";
+import ScrollToTop from "../scroll-to-top/scroll-to-top";
+import LoadingCircle from "../loading-circle/loading-cricle";
+// Importing types
+import { CarInfo } from "./types/car-booking-interface";
+import { FormInput } from "./types/form-input-types";
+// Importing images
+import tickIcon from "../../img/rectangular-tick-icon.svg";
+import verticalLine from "../../img/vertical-line.svg";
+
+import "./styles/car-booking-styles.scss";
+
+// TO DO:
+// Add enum to change currency ??
+// However we don't want to accept multi-currency payments so idk
 
 const CarBooking = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInput>();
+
   const [carInfo, setcarInfo] = useState<CarInfo>(location.state || []);
   const [isLoading, setIsLoading] = useState<boolean>(!location.state);
+  const [totalPrice, setTotalPrice] = useState<string | number>("");
+  const [totalMileageLimit, setTotalMileageLimit] = useState<string | number>(
+    ""
+  );
+  const [totalDays, setTotalDays] = useState<string | number>("");
+  const [didSubmit, setDidSubmit] = useState<boolean>(false);
 
   useEffect(() => {
     const CAR_SLUG_URL: string = location.pathname.slice(9);
@@ -29,6 +54,11 @@ const CarBooking = () => {
       fetchData();
     }
   }, [location.state, location.pathname]);
+
+  const onSubmit: SubmitHandler<FormInput> = (data: object) => {
+    console.log(data);
+    // setDidSubmit(true);
+  };
 
   return (
     <div className='booking-container'>
@@ -45,10 +75,17 @@ const CarBooking = () => {
             </span>
           </div>
           <div className='booking-form-wrapper'>
-            <form id='booking-form'>
+            <form id='booking-form' onSubmit={handleSubmit(onSubmit)}>
               <div className='rental-information'>
-                <PersonalInfoForm />
-                <CarInfoForm carInfo={carInfo} />
+                <PersonalInfoForm register={register} errors={errors} />
+                <CarInfoForm
+                  carInfo={carInfo}
+                  register={register}
+                  errors={errors}
+                  setTotalPrice={setTotalPrice}
+                  setTotalMileageLimit={setTotalMileageLimit}
+                  setTotalDays={setTotalDays}
+                />
               </div>
               <div className='car-offer-separator'>
                 <span>
@@ -60,7 +97,7 @@ const CarBooking = () => {
                   <h2>Payment method</h2>
                 </span>
               </div>
-              <PaymentMethodRadio />
+              <PaymentMethodRadio register={register} errors={errors} />
               <div className='car-offer-separator'>
                 <span>
                   <img
@@ -75,15 +112,15 @@ const CarBooking = () => {
                 <textarea
                   id='user-booking-message'
                   placeholder='Tell us more about your needs or ask us anything'
+                  {...register("userMessage")}
                 />
               </div>
               <div className='checkbox-container'>
                 <div className='checkbox-wrapper'>
                   <input
                     type='checkbox'
-                    name='tos-acknowldge'
                     id='tos-acknowledge'
-                    required
+                    {...register("termsOfService", { required: true })}
                   />
 
                   <div className='checkbox-label'>
