@@ -1,18 +1,49 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useLocation } from "react-router";
-import verticalLine from "../../img/vertical-line.svg";
-import ScrollToTop from "../scroll-to-top/scroll-to-top";
+// Importing data fetch function
 import getCarInfo from "../../services/offers/getCarInfo";
-import { CarInfo } from "./types/car-booking-interface";
+// Importing components
+import PersonalInfoForm from "./personal-info-form";
+import CarInfoForm from "./car-info-form";
+import PaymentMethodRadio from "./payment-method-radio";
+import ScrollToTop from "../scroll-to-top/scroll-to-top";
 import LoadingCircle from "../loading-circle/loading-cricle";
-import "./styles/car-booking-styles.scss";
+// Importing types
+import { CarInfo } from "./types/car-booking-interface";
+import { FormInput } from "./types/form-input-types";
+// Importing images
+import tickIcon from "../../img/rectangular-tick-icon.svg";
+import verticalLine from "../../img/vertical-line.svg";
 
-// WORK IN PROGRESS
+import "./styles/car-booking-styles.scss";
+import BookingSubmitted from "../booking-submitted/booking-submitted";
+
+// TO DO:
+// Add enum to change currency ??
+// However we don't want to accept multi-currency payments so idk
 
 const CarBooking = () => {
   const location = useLocation();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormInput>();
+
   const [carInfo, setcarInfo] = useState<CarInfo>(location.state || []);
+  const { brand, model } = carInfo;
   const [isLoading, setIsLoading] = useState<boolean>(!location.state);
+  const [pricePerDay, setPricePerDay] = useState<string | number>("");
+  const [totalPrice, setTotalPrice] = useState<string | number>("");
+  const [totalMileageLimit, setTotalMileageLimit] = useState<string | number>(
+    ""
+  );
+  const [totalDays, setTotalDays] = useState<string | number>("");
+  const [didSubmit, setDidSubmit] = useState<boolean>(false);
+  const [rentalFormFilled, setRentalFormFilled] = useState<object>([]);
 
   useEffect(() => {
     const CAR_SLUG_URL: string = location.pathname.slice(9);
@@ -25,11 +56,29 @@ const CarBooking = () => {
     if (!location.state) {
       fetchData();
     }
-  }, [location.state, location.pathname]);
 
-  const { brand, model, photo1, pricePerDay, status }: CarInfo = carInfo;
+    console.log(rentalFormFilled);
+  }, [location.state, location.pathname, rentalFormFilled]);
 
-  const isAvailable = status === "Available";
+  const onSubmit: SubmitHandler<FormInput> = (data: object) => {
+    setRentalFormFilled(() => [
+      {
+        vehicle: {
+          brand: brand,
+          model: model,
+        },
+        formData: data,
+        rentalInfo: {
+          pricePerDay,
+          totalDays,
+          totalMileageLimit,
+          totalPrice,
+        },
+      },
+    ]);
+    console.log(rentalFormFilled);
+    setDidSubmit(() => true);
+  };
 
   return (
     <div className='booking-container'>
@@ -46,93 +95,91 @@ const CarBooking = () => {
             </span>
           </div>
           <div className='booking-form-wrapper'>
-            <form id='booking-form'>
-              <div className='booking-personal-info'>
-                <label htmlFor='first-name'>
-                  First name <span className='required'>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='first-name'
-                  placeholder='First name'
-                  required
+            <form id='booking-form' onSubmit={handleSubmit(onSubmit)}>
+              <div className='rental-information'>
+                <PersonalInfoForm register={register} errors={errors} />
+                <CarInfoForm
+                  carInfo={carInfo}
+                  register={register}
+                  errors={errors}
+                  setTotalPrice={setTotalPrice}
+                  setTotalMileageLimit={setTotalMileageLimit}
+                  setTotalDays={setTotalDays}
+                  setPricePerDay={setPricePerDay}
                 />
+              </div>
+              <div className='car-offer-separator'>
+                <span>
+                  <img
+                    src={verticalLine}
+                    alt='vertical line'
+                    className='vertical-line'
+                  />
+                  <h2>Payment method</h2>
+                </span>
+              </div>
+              <PaymentMethodRadio register={register} errors={errors} />
+              <div className='car-offer-separator'>
+                <span>
+                  <img
+                    src={verticalLine}
+                    alt='vertical line'
+                    className='vertical-line'
+                  />
+                  <h2>Leave us a message</h2>
+                </span>
+              </div>
+              <div className='input-wrapper'>
+                <textarea
+                  id='user-booking-message'
+                  placeholder='Tell us more about your needs or ask us anything'
+                  {...register("userMessage")}
+                />
+              </div>
+              <div className='checkbox-container'>
+                <div className='checkbox-wrapper'>
+                  <input
+                    type='checkbox'
+                    id='tos-acknowledge'
+                    {...register("termsOfService", { required: true })}
+                  />
 
-                <label htmlFor='last-name'>
-                  Last name <span className='required'>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='last-name'
-                  placeholder='Last name'
-                  required
-                />
-
-                <label htmlFor='e-mail'>
-                  E-mail address <span className='required'>*</span>
-                </label>
-                <input
-                  type='email'
-                  id='e-mail'
-                  placeholder='E-mail address'
-                  required
-                />
-
-                <label htmlFor='phone-number'>
-                  Phone number <span className='required'>*</span>
-                </label>
-                <input
-                  type='tel'
-                  id='phone-number'
-                  placeholder='Phone number'
-                  pattern='[0-9]{9}'
-                  required
-                />
-
-                <label htmlFor='address'>
-                  Address of permanent residence
-                  <span className='required'>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='address'
-                  placeholder='Address of permanent residence'
-                  required
-                />
-
-                <label htmlFor='postal-code'>
-                  Postal code <span className='required'>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='postal-code'
-                  placeholder='Postal code'
-                  required
-                />
-
-                <label htmlFor='city-town'>
-                  City/town <span className='required'>*</span>
-                </label>
-                <input
-                  type='text'
-                  id='city-town'
-                  placeholder='City/town'
-                  required
-                />
-
-                <label htmlFor='pesel'>PESEL</label>
-                <input
-                  type='text'
-                  id='pesel'
-                  placeholder='PESEL (if you have one)'
-                />
+                  <div className='checkbox-label'>
+                    <label htmlFor='tos-acknowledge'>
+                      <div className='checkbox-tick'>
+                        <img
+                          src={tickIcon}
+                          className='checkbox-tick'
+                          alt='tos acknowledge'
+                        />
+                      </div>
+                      <span>
+                        I have read and agree to the{" "}
+                        <NavLink to='/terms-of-service'>
+                          terms of service
+                        </NavLink>{" "}
+                        of Tropicar <span className='required'>*</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
                 <small>
                   <span className='required'>*</span> - required
                 </small>
-                <button type='submit'>Book!</button>
               </div>
+              <button type='submit' className='submit-form-button'>
+                Book now
+              </button>
             </form>
           </div>
+          {didSubmit && (
+            <BookingSubmitted
+              setDidSubmit={setDidSubmit}
+              formDetails={rentalFormFilled}
+              brand={brand}
+              model={model}
+            />
+          )}
         </div>
       ) : (
         <LoadingCircle />

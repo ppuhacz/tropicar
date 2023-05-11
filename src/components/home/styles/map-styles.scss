@@ -37,11 +37,11 @@
         width: 80px;
         border: 0;
         background-color: $orange-400;
-        transition: 0.20s linear;
+        transition: 0.20s ease-out;
       }
       &:hover {
         .location-horizontal-line {
-          transition: 0.20s linear;
+          transition: 0.20s ease-out;
           width: 160px;
         }
       }

@@ -10,7 +10,8 @@ import MileageLimitSection from "./sections/mileage-limit-section";
 import PhotoGallery from "./photo-gallery";
 import getCarInfo from "../../services/offers/getCarInfo";
 import LoadingCircle from "../loading-circle/loading-cricle";
-import BookingFormSection from "./sections/contact-form-section";
+import MoreQuestionsSection from "./sections/contact-form-section";
+import { NavLink } from "react-router-dom";
 
 const Car = () => {
   const location = useLocation();
@@ -45,6 +46,7 @@ const Car = () => {
     slug,
     deposit,
     status,
+    dailyMileageLimitKM,
   }: CarOffer = carInfo;
 
   const photos = [photo1, photo2, photo3];
@@ -55,8 +57,6 @@ const Car = () => {
     ) : (
       <p className='status status-unavailable'>✖ Unavailable</p>
     );
-
-  const dailyMileageLimit: number = 200;
 
   return (
     <div className='car-offer-container'>
@@ -111,8 +111,17 @@ const Car = () => {
           </div>
           <PriceListSection price={pricePerDay} />
           <RequirementsAndDepositSection deposit={deposit} />
-          <MileageLimitSection mileageLimit={dailyMileageLimit} />
-          <BookingFormSection />
+          <MileageLimitSection mileageLimit={dailyMileageLimitKM} />
+          <MoreQuestionsSection />
+          <div className='book-this-car'>
+            <NavLink
+              state={carInfo}
+              to={`/booking/${slug}`}
+              className='book-this-car-button'
+            >
+              Book this car
+            </NavLink>
+          </div>
         </div>
       ) : (
         <LoadingCircle />

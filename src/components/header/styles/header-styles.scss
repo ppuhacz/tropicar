@@ -13,12 +13,20 @@ header {
 
 li {
   transition: color 0.2s ease-in-out;
+<<<<<<< HEAD
 
   &:hover {
+=======
+  &:hover:not(.book-a-car-link) {
+>>>>>>> work-in-progress
     color: $orange-400;
     transition: color 0.2s ease-in-out;
     cursor: pointer;
   }
+}
+
+.book-a-car-link {
+  width: 100%;
 }
 
 .header-icon {
@@ -95,18 +103,19 @@ li {
   margin: 0;
 
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
     &:not(:last-child) {
       margin-right: 27px;
     }
   }
   .navigation-item {
     display: flex;
-    align-items: center;
     justify-content: center;
     height: 53px;
     width: 120px;
-    padding: 0 15px;
-
   }
   a {
     display: flex;
