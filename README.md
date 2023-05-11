@@ -9,7 +9,7 @@ Currently completed pages:
   <li>Home</li>
   <li>Fleet</li>
   <li>Car details</li>
-  <li>Booking form (no validation yet)</li>
+  <li>Booking form (with validation)</li>
 </ul>
 
 # Built with
@@ -20,6 +20,7 @@ Currently completed pages:
   <li>AirTable</li>
   <li>Leaflet</li>
   <li>React router</li>
+  <li>React form hook validation</li>
   <li>Prettier</li>
   <li>ESLint</li>
   <li>yarn</li>
