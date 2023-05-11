@@ -1,18 +1,15 @@
 import React from "react";
 import "./styles/booking-submitted-styles.scss";
-import { FormInput } from "../car-booking/types/form-input-types";
 import { NavLink } from "react-router-dom";
 import GreenTickIcon from "../../img/rectangular-tick-green-icon.svg";
 
 interface BookingSubmittedProps {
-  setDidSubmit: React.Dispatch<React.SetStateAction<boolean>>;
   brand: string;
   model: string;
   formDetails: object;
 }
 
 const BookingSubmitted = ({
-  setDidSubmit,
   brand,
   model,
   formDetails,
