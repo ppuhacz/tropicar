@@ -13,12 +13,7 @@ header {
 
 li {
   transition: color 0.2s ease-in-out;
-<<<<<<< HEAD
-
-  &:hover {
-=======
   &:hover:not(.book-a-car-link) {
->>>>>>> work-in-progress
     color: $orange-400;
     transition: color 0.2s ease-in-out;
     cursor: pointer;
