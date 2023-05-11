@@ -10,7 +10,8 @@ import MileageLimitSection from "./sections/mileage-limit-section";
 import PhotoGallery from "./photo-gallery";
 import getCarInfo from "../../services/offers/getCarInfo";
 import LoadingCircle from "../loading-circle/loading-cricle";
-import BookingFormSection from "./sections/contact-form-section";
+import MoreQuestionsSection from "./sections/contact-form-section";
+import { NavLink } from "react-router-dom";
 
 const Car = () => {
   const location = useLocation();
@@ -111,7 +112,16 @@ const Car = () => {
           <PriceListSection price={pricePerDay} />
           <RequirementsAndDepositSection deposit={deposit} />
           <MileageLimitSection mileageLimit={dailyMileageLimitKM} />
-          <BookingFormSection />
+          <MoreQuestionsSection />
+          <div className='book-this-car'>
+            <NavLink
+              state={carInfo}
+              to={`/booking/${slug}`}
+              className='book-this-car-button'
+            >
+              Book this car
+            </NavLink>
+          </div>
         </div>
       ) : (
         <LoadingCircle />

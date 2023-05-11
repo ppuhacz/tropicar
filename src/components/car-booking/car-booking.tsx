@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 // Importing data fetch function
 import getCarInfo from "../../services/offers/getCarInfo";
 // Importing components
@@ -18,6 +18,7 @@ import tickIcon from "../../img/rectangular-tick-icon.svg";
 import verticalLine from "../../img/vertical-line.svg";
 
 import "./styles/car-booking-styles.scss";
+import BookingSubmitted from "../booking-submitted/booking-submitted";
 
 // TO DO:
 // Add enum to change currency ??
@@ -25,7 +26,6 @@ import "./styles/car-booking-styles.scss";
 
 const CarBooking = () => {
   const location = useLocation();
-  const navigate = useNavigate();
 
   const {
     register,
@@ -34,13 +34,16 @@ const CarBooking = () => {
   } = useForm<FormInput>();
 
   const [carInfo, setcarInfo] = useState<CarInfo>(location.state || []);
+  const { brand, model } = carInfo;
   const [isLoading, setIsLoading] = useState<boolean>(!location.state);
+  const [pricePerDay, setPricePerDay] = useState<string | number>("");
   const [totalPrice, setTotalPrice] = useState<string | number>("");
   const [totalMileageLimit, setTotalMileageLimit] = useState<string | number>(
     ""
   );
   const [totalDays, setTotalDays] = useState<string | number>("");
   const [didSubmit, setDidSubmit] = useState<boolean>(false);
+  const [rentalFormFilled, setRentalFormFilled] = useState<object>([]);
 
   useEffect(() => {
     const CAR_SLUG_URL: string = location.pathname.slice(9);
@@ -53,11 +56,28 @@ const CarBooking = () => {
     if (!location.state) {
       fetchData();
     }
-  }, [location.state, location.pathname]);
+
+    console.log(rentalFormFilled);
+  }, [location.state, location.pathname, rentalFormFilled]);
 
   const onSubmit: SubmitHandler<FormInput> = (data: object) => {
-    console.log(data);
-    // setDidSubmit(true);
+    setRentalFormFilled(() => [
+      {
+        vehicle: {
+          brand: brand,
+          model: model,
+        },
+        formData: data,
+        rentalInfo: {
+          pricePerDay,
+          totalDays,
+          totalMileageLimit,
+          totalPrice,
+        },
+      },
+    ]);
+    console.log(rentalFormFilled);
+    setDidSubmit(() => true);
   };
 
   return (
@@ -85,6 +105,7 @@ const CarBooking = () => {
                   setTotalPrice={setTotalPrice}
                   setTotalMileageLimit={setTotalMileageLimit}
                   setTotalDays={setTotalDays}
+                  setPricePerDay={setPricePerDay}
                 />
               </div>
               <div className='car-offer-separator'>
@@ -151,6 +172,14 @@ const CarBooking = () => {
               </button>
             </form>
           </div>
+          {didSubmit && (
+            <BookingSubmitted
+              setDidSubmit={setDidSubmit}
+              formDetails={rentalFormFilled}
+              brand={brand}
+              model={model}
+            />
+          )}
         </div>
       ) : (
         <LoadingCircle />

@@ -6,6 +6,7 @@ const CarInfoForm = ({
   carInfo,
   register,
   errors,
+  setPricePerDay,
   setTotalPrice,
   setTotalMileageLimit,
   setTotalDays,
@@ -74,8 +75,17 @@ const CarInfoForm = ({
   };
 
   useEffect(() => {
+    const totalDays = calculateDays;
+    setTotalDays(totalDays);
+
     const price = calculatePrice();
     setTotalPrice(price);
+
+    const mileageLimit = Number(calculateDays()) * dailyMileageLimitKM;
+    setTotalMileageLimit(mileageLimit);
+
+    const pricePerDay = calculatePricePerDay().toFixed(2);
+    setPricePerDay(pricePerDay);
   }, [startDateValue, endDateValue]);
 
   const calculatedPricePerDay = calculatePricePerDay().toFixed(2);
@@ -110,59 +120,20 @@ const CarInfoForm = ({
       </div>
       <div className='car-info-form-details-wrapper'>
         <div className='car-info-form-details'>
-          Price per day:
-          <span>
-            <input
-              type='text'
-              value={`€${calculatedPricePerDay}`}
-              {...register("pricePerDay")}
-              readOnly
-            />
-          </span>
+          Price per day: <span>€{calculatedPricePerDay}</span>
         </div>
         <div className='car-info-form-details'>
-          Total days:
-          <span>
-            <input
-              type='text'
-              value={totalDays}
-              {...register("totalDays")}
-              readOnly
-            />
-          </span>
+          Total days: <span>{totalDays}</span>
         </div>
         <div className='car-info-form-details'>
-          Refundable deposit:
-          <span>
-            <input
-              type='text'
-              value={`€${deposit}`}
-              {...register("deposit")}
-              readOnly
-            />
-          </span>
+          Refundable deposit: <span>€{deposit}</span>
         </div>
         <div className='car-info-form-details'>
           Total mileage limit:
-          <span>
-            <input
-              type='text'
-              value={`${totalMileageLimit} km`}
-              {...register("totalMileageLimit")}
-              readOnly
-            />
-          </span>
+          <span>{totalMileageLimit} km</span>
         </div>
         <div className='car-info-form-details'>
-          Total price:
-          <span>
-            <input
-              type='text'
-              value={`€${totalPrice}`}
-              {...register("totalPrice")}
-              readOnly
-            />
-          </span>
+          Total price: <span>€{totalPrice}</span>
         </div>
       </div>
     </div>

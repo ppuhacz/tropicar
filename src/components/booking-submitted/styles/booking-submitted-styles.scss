@@ -1,0 +1,63 @@
+@import '../../../config/styles/style-variables.scss';
+
+.booking-submitted-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: $gray-transparent-800;
+  backdrop-filter: blur(7px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  .booking-submitted-wrapper {
+    width: $pageWidth;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    .green-tick-icon {
+      margin: 30px 0;
+      img {
+        width: 50px;
+      }
+    }
+
+    span, small {
+      margin: 0 0 15px 0;
+    }
+
+    a {
+      position: relative;
+      padding-bottom: 5px;
+      color: $orange-400
+    }
+
+    a:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: $orange-400;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    a:hover:after{
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+    small {
+      font-size: 0.7rem;
+      color: gray;
+    }
+  }
+}

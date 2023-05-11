@@ -141,6 +141,34 @@
   }
 }
 
+.book-this-car {
+  display: flex;
+  justify-content: center;
+  .book-this-car-button {
+    margin: 80px 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    background-color: transparent;
+    height: 50px;
+    border: 1px solid $orange-400;
+    transition: all 0.1s linear;
+
+    &:hover {
+      background-color: $orange-400;
+      transition: all 0.1s linear;
+    }
+
+    a {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   .car-offer-info-container {
     height: 520px;
