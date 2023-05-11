@@ -76,7 +76,6 @@ const CarBooking = () => {
         },
       },
     ]);
-    console.log(rentalFormFilled);
     setDidSubmit(() => true);
   };
 

@@ -86,7 +86,7 @@ const CarInfoForm = ({
 
     const pricePerDay = calculatePricePerDay().toFixed(2);
     setPricePerDay(pricePerDay);
-  }, [startDateValue, endDateValue]);
+  });
 
   const calculatedPricePerDay = calculatePricePerDay().toFixed(2);
   const totalPrice = calculatePrice();
