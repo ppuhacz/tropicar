@@ -174,7 +174,6 @@ const CarBooking = () => {
           </div>
           {didSubmit && (
             <BookingSubmitted
-              setDidSubmit={setDidSubmit}
               formDetails={rentalFormFilled}
               brand={brand}
               model={model}
