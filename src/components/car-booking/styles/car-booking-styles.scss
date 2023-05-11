@@ -77,8 +77,9 @@
 
       input[type="checkbox"] {
         -webkit-appearance: none;
+        -moz-appearance: none;
         appearance: none;
-        background-color: #fff;
+        background-color: transparent;
         margin: 0;
       }
 

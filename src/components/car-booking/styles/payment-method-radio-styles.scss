@@ -29,8 +29,15 @@
 
       input[type="radio"] {
         -webkit-appearance: none;
+        -moz-appearance: none;
         appearance: none;
-        background-color: #fff;
+        background-color: transparent;
+        margin: 0;
+      }
+
+      input[type="radio"]::-webkit-inner-spin-button,
+      input[type="radio"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
         margin: 0;
       }
 

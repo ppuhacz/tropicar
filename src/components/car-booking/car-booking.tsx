@@ -32,7 +32,6 @@ const CarBooking = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInput>();
-
   const [carInfo, setcarInfo] = useState<CarInfo>(location.state || []);
   const { brand, model } = carInfo;
   const [isLoading, setIsLoading] = useState<boolean>(!location.state);
@@ -43,7 +42,9 @@ const CarBooking = () => {
   );
   const [totalDays, setTotalDays] = useState<string | number>("");
   const [didSubmit, setDidSubmit] = useState<boolean>(false);
-  const [rentalFormFilled, setRentalFormFilled] = useState<object>([]);
+  const [rentalFormFilled, setRentalFormFilled] = useState<
+    object | undefined
+  >();
 
   useEffect(() => {
     const CAR_SLUG_URL: string = location.pathname.slice(9);
@@ -58,7 +59,7 @@ const CarBooking = () => {
     }
 
     console.log(rentalFormFilled);
-  }, [location.state, location.pathname, rentalFormFilled]);
+  }, [location.state, location.pathname, rentalFormFilled, didSubmit]);
 
   const onSubmit: SubmitHandler<FormInput> = (data: object) => {
     setRentalFormFilled(() => [

@@ -1,0 +1,44 @@
+@import '../../../config/styles/style-variables.scss';
+
+.leaflet-container {
+  width: 100%;
+  height: 300px;
+
+  .leaflet-popup-content {
+    color: #000!important;
+  }
+
+  .leaflet-control-zoom-in, .leaflet-control-zoom-out {
+    span{
+      color: black;
+    }
+  }
+}
+
+.contact-page-wrapper {
+  width: $pageWidth;
+  margin: 30px auto;
+
+  .car-offer-separator {
+    margin-bottom: 30px;
+  }
+
+  .contact-info-wrapper {
+    span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .social-media-title {
+      margin-bottom: 10px;
+    }
+
+
+  }
+
+    #facebook {
+      cursor: pointer;
+    }
+}

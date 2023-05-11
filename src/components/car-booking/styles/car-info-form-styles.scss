@@ -39,8 +39,16 @@
       -moz-osx-font-smoothing: grayscale;
 
     }
+
     input[type="date"]::-webkit-calendar-picker-indicator {
-      filter: invert(45%) sepia(75%) saturate(1532%) hue-rotate(2deg) brightness(105%) contrast(103%);  }
+        filter: invert(45%) sepia(75%) saturate(1532%) hue-rotate(2deg) brightness(105%) contrast(103%);
+    }
+
+    input[type="date"]{
+      display: flex;
+      align-items: center;
+    }
+
 
   }
 

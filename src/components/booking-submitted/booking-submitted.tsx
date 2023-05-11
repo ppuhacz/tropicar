@@ -6,7 +6,7 @@ import GreenTickIcon from "../../img/rectangular-tick-green-icon.svg";
 interface BookingSubmittedProps {
   brand: string;
   model: string;
-  formDetails: object;
+  formDetails: object | undefined;
 }
 
 const BookingSubmitted = ({

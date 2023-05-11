@@ -20,6 +20,12 @@
     .leaflet-popup-content {
       color: #000!important;
     }
+
+    .leaflet-control-zoom-in, .leaflet-control-zoom-out {
+      span{
+        color: black;
+      }
+    }
   }
 
   .location-info {

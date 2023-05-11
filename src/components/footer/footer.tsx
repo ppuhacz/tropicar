@@ -67,8 +67,13 @@ export const Footer = () => {
           <p>+48 000 000 000</p>
           <p>Rynek Staromiejski 6/7,</p>
           <p>75-007 Koszalin</p>
-          <img src={facebookIcon} alt='facebook' />
-          <a href='https://github.com/ppuhacz' target='_blank' rel='noreferrer'>
+          <img src={facebookIcon} alt='facebook' title='Facebook' />
+          <a
+            href='https://github.com/ppuhacz'
+            target='_blank'
+            rel='noreferrer'
+            title='Github'
+          >
             <img src={githubIcon} alt='githbub' />
           </a>
         </div>

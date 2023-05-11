@@ -1,0 +1,21 @@
+@import '../../../config/styles/style-variables.scss';
+
+.tos-container{
+  width:$pageWidth;
+  margin: 40px auto;
+}
+
+.tos-wrapper{
+
+  ol {
+    list-style-position: inside;
+  }
+  li {
+    margin: 20px 0;
+
+    &::marker {
+      color: $orange-400;
+    }
+  }
+
+}

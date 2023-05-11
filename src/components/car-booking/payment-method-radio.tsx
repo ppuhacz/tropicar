@@ -67,7 +67,9 @@ const PaymentMethodRadio = ({ register, errors }: PersonalInfoFormProps) => {
           required
           pattern='[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}'
           value={creditCardNumber}
-          {...register("creditCardNumber", { required: true })}
+          {...register("creditCardNumber", {
+            required: true,
+          })}
           onChange={handleCreditCardNumberChange}
           maxLength={19}
         />
