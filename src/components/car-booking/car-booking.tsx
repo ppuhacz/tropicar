@@ -27,7 +27,6 @@ const CarBooking = () => {
     register,
     handleSubmit,
     formState: { errors },
-    control,
   } = useForm<FormInput>();
   const [carInfo, setcarInfo] = useState<CarInfo>(location.state || []);
   const { brand, model } = carInfo;
