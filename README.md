@@ -2,7 +2,7 @@ https://tropicar.netlify.app/
 
 # TropiCar
 
-My free-time exotic car rental project that I have started developing on 14.04. This project is still a work in progress and not all pages are yet completed. 
+My free-time exotic car rental project that I have started developing on 14.04. This project is still and although all pages are completed, there are still some functionality and code work to do
 
 Currently completed pages: 
 <ul>
