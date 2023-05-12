@@ -3,7 +3,7 @@ Allow: /
 Allow: /fleet/
 Allow: /offer/
 Allow: /contact-us/
-Allow: /login/
+Allow: /terms-of-service/
 Allow: /booking/
 
 User-agent: Googlebot

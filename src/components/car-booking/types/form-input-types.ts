@@ -20,5 +20,4 @@ export interface FormInput {
   creditCardSecurityCode: string;
   userMessage: string;
   termsOfService: boolean;
-  content: any;
 }

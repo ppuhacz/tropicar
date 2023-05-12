@@ -1,8 +1,8 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Header from "../header/header";
 import { Footer } from "../footer/footer";
 
-const Layout = ({ children, data }: any) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Header />

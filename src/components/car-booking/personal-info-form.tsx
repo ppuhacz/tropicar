@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PersonalInfoFormProps } from "./types/info-form-props-interface";
 import "./styles/personal-info-form.scss";
 
-const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
+const PersonalInfoForm = ({ register }: PersonalInfoFormProps) => {
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [peselNumber, setPeselNumber] = useState<string>("");
 
@@ -22,7 +22,8 @@ const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
           type='text'
           id='first-name'
           placeholder=' '
-          {...register("firstName", { required: true })}
+          required
+          {...register("firstName", { required: "test" })}
         />
         <div className='label-wrapper'>
           <label htmlFor='first-name'>
@@ -35,6 +36,7 @@ const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
           type='text'
           id='last-name'
           placeholder=' '
+          required
           {...register("lastName", { required: true })}
         />
 
@@ -49,6 +51,7 @@ const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
           type='email'
           id='e-mail'
           placeholder=' '
+          required
           {...register("email", { required: true })}
         />
 
@@ -64,6 +67,7 @@ const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
           id='phone-number'
           pattern='^\d{9,11}$'
           placeholder=' '
+          required
           value={phoneNumber}
           maxLength={11}
           {...register("phoneNumber", { required: true })}
@@ -80,6 +84,7 @@ const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
           type='text'
           id='address'
           placeholder=' '
+          required
           {...register("address", { required: true })}
         />
         <div className='label-wrapper'>
@@ -94,6 +99,7 @@ const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
           type='text'
           id='postal-code'
           placeholder=' '
+          required
           {...register("postalCode", { required: true })}
         />
         <div className='label-wrapper'>
@@ -107,6 +113,7 @@ const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
           type='text'
           id='city-town'
           placeholder=' '
+          required
           {...register("cityTown", { required: true })}
         />
 
@@ -124,7 +131,7 @@ const PersonalInfoForm = ({ register, errors }: PersonalInfoFormProps) => {
           pattern='[0-9]{11}'
           value={peselNumber}
           maxLength={11}
-          {...register("pesel", { required: false })}
+          {...register("pesel")}
           onChange={handlePeselNumberChange}
         />
         <div className='label-wrapper'>

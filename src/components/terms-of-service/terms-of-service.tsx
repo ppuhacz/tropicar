@@ -1,6 +1,6 @@
 import React from "react";
 import verticalLine from "../../img/vertical-line.svg";
-import "./styles/terms-of-servicer-styles.scss";
+import "./styles/terms-of-services-styles.scss";
 import ScrollToTop from "../scroll-to-top/scroll-to-top";
 
 const TermsOfService = () => {

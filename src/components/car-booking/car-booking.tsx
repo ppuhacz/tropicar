@@ -10,19 +10,15 @@ import CarInfoForm from "./car-info-form";
 import PaymentMethodRadio from "./payment-method-radio";
 import ScrollToTop from "../scroll-to-top/scroll-to-top";
 import LoadingCircle from "../loading-circle/loading-cricle";
+import BookingSubmitted from "../booking-submitted/booking-submitted";
 // Importing types
 import { CarInfo } from "./types/car-booking-interface";
 import { FormInput } from "./types/form-input-types";
 // Importing images
 import tickIcon from "../../img/rectangular-tick-icon.svg";
 import verticalLine from "../../img/vertical-line.svg";
-
+// Importing styles
 import "./styles/car-booking-styles.scss";
-import BookingSubmitted from "../booking-submitted/booking-submitted";
-
-// TO DO:
-// Add enum to change currency ??
-// However we don't want to accept multi-currency payments so idk
 
 const CarBooking = () => {
   const location = useLocation();
@@ -31,6 +27,7 @@ const CarBooking = () => {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm<FormInput>();
   const [carInfo, setcarInfo] = useState<CarInfo>(location.state || []);
   const { brand, model } = carInfo;
@@ -97,11 +94,10 @@ const CarBooking = () => {
           <div className='booking-form-wrapper'>
             <form id='booking-form' onSubmit={handleSubmit(onSubmit)}>
               <div className='rental-information'>
-                <PersonalInfoForm register={register} errors={errors} />
+                <PersonalInfoForm register={register} />
                 <CarInfoForm
                   carInfo={carInfo}
                   register={register}
-                  errors={errors}
                   setTotalPrice={setTotalPrice}
                   setTotalMileageLimit={setTotalMileageLimit}
                   setTotalDays={setTotalDays}
@@ -118,7 +114,7 @@ const CarBooking = () => {
                   <h2>Payment method</h2>
                 </span>
               </div>
-              <PaymentMethodRadio register={register} errors={errors} />
+              <PaymentMethodRadio register={register} />
               <div className='car-offer-separator'>
                 <span>
                   <img
@@ -137,11 +133,16 @@ const CarBooking = () => {
                 />
               </div>
               <div className='checkbox-container'>
+                <span className='error-message'>
+                  {errors.termsOfService && errors.termsOfService.message}
+                </span>
                 <div className='checkbox-wrapper'>
                   <input
                     type='checkbox'
                     id='tos-acknowledge'
-                    {...register("termsOfService", { required: true })}
+                    {...register("termsOfService", {
+                      required: "You must accept our Terms of service!",
+                    })}
                   />
 
                   <div className='checkbox-label'>

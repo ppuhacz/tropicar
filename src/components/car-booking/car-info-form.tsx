@@ -5,13 +5,13 @@ import { CarInfoType } from "./types/car-info-form-interface";
 const CarInfoForm = ({
   carInfo,
   register,
-  errors,
   setPricePerDay,
   setTotalPrice,
   setTotalMileageLimit,
   setTotalDays,
 }: CarInfoType) => {
-  const [startDateValue, setStartDateValue] = useState<string>("");
+  const currentDate: string = new Date().toISOString().slice(0, 10);
+  const [startDateValue, setStartDateValue] = useState<string>(currentDate);
   const [endDateValue, setEndDateValue] = useState<string>("");
 
   const { brand, model, photo1, pricePerDay, deposit, dailyMileageLimitKM } =
@@ -106,6 +106,8 @@ const CarInfoForm = ({
           type='date'
           id='start-date'
           value={startDateValue}
+          min={currentDate}
+          required
           {...register("startDate", { required: true })}
           onChange={handleStartDateValueChange}
         />

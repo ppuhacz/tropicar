@@ -114,6 +114,10 @@
       transition: all 0.1s linear;
     }
   }
+
+  .error-message {
+    color: $red-100;
+  }
 }
 
 @media (min-width: 1024px) {

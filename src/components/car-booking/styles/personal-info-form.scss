@@ -20,6 +20,7 @@
       position: absolute;
       pointer-events:none;
     }
+
     label {
       display: flex;
       align-items: center;
@@ -33,6 +34,7 @@
       cursor: text;
       color: #ffffff5b;
       transition: all 0.2s ease;
+
       span {
         margin-left: 5px;
       }
@@ -63,12 +65,14 @@
         transform: translate(0);
       }
     }
+
     input:valid:not(:placeholder-shown) ~ .label-wrapper label {
       font-size: 0.6rem;
       bottom: 2px;
       transform: translate(0);
       color: $green-100
     }
+
     input:not(:placeholder-shown):invalid {
       border-left: 2px solid $red-100;
 
