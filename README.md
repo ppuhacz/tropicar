@@ -10,6 +10,9 @@ Currently completed pages:
   <li>Fleet</li>
   <li>Car details</li>
   <li>Booking form (with validation)</li>
+  <li>Contact page</li>
+  <li>Terms of service page</li>
+
 </ul>
 
 # Built with
